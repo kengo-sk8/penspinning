@@ -1,0 +1,20 @@
+.contents.row
+  .container
+    = form_with(model: @product, local: true) do |form|
+      %h3
+        投稿する
+
+      = form.label :name
+      = form.text_field :name, placeholder: "name"
+
+      = form.label :video
+      = form.file_field :video, placeholder: "name"
+
+
+      = form.label :youtube_url
+      = form.text_field :youtube_url, placeholder: "youtubeのURLを記載して下さい"
+
+      = form.label :text
+      = form.text_area :text, placeholder: "text" , rows: "10"
+
+      = form.submit "SEND"

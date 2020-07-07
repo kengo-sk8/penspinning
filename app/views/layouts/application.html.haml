@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title FreeApp
+    %script{src: "https://js.pay.jp/", type: "text/javascript"}
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body
+    %header.header
+      .header__title
+        = link_to "penspinning videos", '#', class: "header__title--text"
+      .header__right
+        = link_to "新規投稿", new_product_path, class: "header__right--btn"
+    .contents
+
+    = yield
+    %footer
+      %p
+        Copyright PicTweet 2019.
+
