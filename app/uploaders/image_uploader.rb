@@ -2,6 +2,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
+  # include VideoThumbnailer
+  # storage :file
+
+  # version :thumb do
+  #    process generate_thumb:[{size:"200 x 200",:quality => 5, :time_frame => "00:0:04", :file_extension => "jpeg", :rotate => 180 }]
+  #   def full_filename for_file
+  #     png_name for_file, version_name, "jpeg"
+  #   end
+  # end
 
   # Choose what kind of storage to use for this uploader:
   if Rails.env.development? || Rails.env.test?

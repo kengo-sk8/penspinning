@@ -1,3 +1,8 @@
+@import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "all/app";
+@import "product/index";
+@import "product/form";
+@import "product/header";
+@import "product/footer";
+@import "static_pages/about";

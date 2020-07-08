@@ -1,14 +1,26 @@
-.contents.row
-  - @products.each do |product|
-    .content_post
-
-      %iframe{src: "https://www.youtube.com/embed/#{product.youtube_url}", allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen: "", frameborder: "0", height: "315", width: "560"}
-
-      = video_tag(product.video_url.to_s, autoplay: true, muted: true, controls: true, preload: true, width: 550)
-
-      %p
+= render "header"
+.blank
+%main.main
+  .contents
+    - @products.each do |product|
+      .content_post
+        %span.name
+          = product.name
+      .content_post
+        %iframe{src: "https://www.youtube.com/embed/#{product.youtube_url}", allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen: "", frameborder: "0", height: "315", width: "560"}
+      .content_post
         = product.text
-      %span.name
-        = product.name
+
+.main_footer
+  = render "footer"
 
 
+
+
+
+
+
+
+
+-# -# videoの投稿
+-# = video_tag(product.video_url.to_s, autoplay: true, muted: true, controls: true, preload: true, width: 550)

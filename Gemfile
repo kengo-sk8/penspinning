@@ -23,7 +23,7 @@ gem 'active_hash'
 gem 'jquery-rails'
 gem 'dotenv-rails' #.envの生成
 gem 'haml-rails' #htmlをhamlにする為、記述した
-gem 'font-awesome-sass'
+gem 'font-awesome-sass' #アイコン
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

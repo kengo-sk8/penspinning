@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  def help
+  def contact
   end
 
   def inquiry
