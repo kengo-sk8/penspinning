@@ -5,6 +5,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :text
       t.string :youtube_url
       t.string :video
+      t.references :pen_tyep
       t.timestamps
     end
   end

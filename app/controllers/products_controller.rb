@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
 
     private
     def product_params
-      params.require(:product).permit(:name, :video, :youtube_ur, :text)
+      params.require(:product).permit(:name, :pen_type_id, :youtube_ur, :text)
     end
 
 

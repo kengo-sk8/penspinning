@@ -1,20 +1,35 @@
-.contents.row
-  .container
-    = form_with(model: @product, local: true) do |form|
-      %h3
-        投稿する
+.form
+  %h2.form_title
+    投稿をして下さい！!
+  = form_with(model: @product, local: true) do |form|
+    .main_new
+      .form-content
+        .form-group
+          %label
+            動画投稿
+            %span.form-require 必須
+          = form.label :youtube_url
+          = form.text_field :youtube_url, placeholder: "youtubeのURLを記載して下さい"
 
-      = form.label :name
-      = form.text_field :name, placeholder: "name"
+        .form-group
+          %label
+            動画の説明
+            %span.form-require 必須
+          = form.label :content
+          = form.text_area :content, placeholder: "動画の説明をご記入ください", rows: "5", class: "textarea-default"
+        .form-group
+          %label
+            Penの種類
+            %span.form-require 必須
+          %div
+            .select-wrap
+              = form.label :pen_tyep_id
+              = form.collection_select :pen_tyep_id, PenType.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
 
-      = form.label :video
-      = form.file_field :video, placeholder: "name"
-
-
-      = form.label :youtube_url
-      = form.text_field :youtube_url, placeholder: "youtubeのURLを記載して下さい"
-
-      = form.label :text
-      = form.text_area :text, placeholder: "text" , rows: "10"
 
       = form.submit "SEND"
+      = link_to "戻る", root_path, class: "btn-default btn-gray"
+
+.sub_footer
+  %small Penspinning video posting 2020. Producer Kengo Matsuno
+
