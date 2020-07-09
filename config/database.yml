@@ -5,7 +5,7 @@ default: &default
   username: root
   password:
   socket: /tmp/mysql.sock
-  host: <%= ENV.fetch("DB_HOST") { 'localhost' } %>
+  host: <%= ENV['MYSQL_HOST'] %>
 
 development:
   <<: *default
