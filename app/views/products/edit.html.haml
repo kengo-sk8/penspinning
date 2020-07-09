@@ -10,7 +10,7 @@
           %span.form-require 必須
         %div
           .select-wrap
-            = form.collection_select :pen_type_id, PenType.all, :id, :value, class: "select-default"
+            = form.collection_select :pen_type_id, PenType.all, :id, :value, {prompt: "選択して下さい", selected: @product.id},class: "select-default"
 
       .post
         = form.submit "投稿",class: "form_submit_bottun"

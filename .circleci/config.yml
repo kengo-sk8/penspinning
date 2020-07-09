@@ -15,7 +15,7 @@ jobs:
           MYSQL_PASSWORD: ''
           MYSQL_PORT: 3306
           BUNDLER_VERSION: 2.1.4
-      - image: circleci/mysql:5.7.18
+      - image: circleci/mysql:5.7
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_ROOT_PASSWORD: ''
