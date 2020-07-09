@@ -1,0 +1,129 @@
+.static_pages_section {
+  position: relative;
+  z-index: 100;
+  padding: 1px 0 1px;
+}
+
+.base {
+  width: 670px;
+  height: 100hv;
+  min-height: 100vh;
+  background: #fff;
+  margin:  30px auto 30px ;               /* 中央寄せ */
+}
+
+//terms of use & privacy
+.bylaw {
+  .paragraph {
+    padding: 48px;
+
+    .heading_bylaw {
+      margin-bottom: 24px;
+      font-weight: bold;
+      font-size: 2.4rem;
+      text-align: center;
+    }
+
+    .text_bylaw:not(:last-child) {
+      padding-bottom: 24px;
+    }
+
+    .text_bylaw {
+      .heading_article {
+        display: block;
+        margin-bottom: 12px;
+        font-weight: bold;
+        font-size: 2rem;
+      }
+
+      .article_text {
+        padding-left: 0.9em;
+        text-indent: 1em;
+      }
+
+      .article_text:not(:last-child) {
+        margin-bottom: 12px;
+      }
+
+      .article_list {
+        counter-reset: item;
+
+        li {
+          padding-left: 2.35em;
+          text-indent: -1.35em;
+
+          ol {
+            margin-top: 8px;
+            counter-reset: item;
+
+            li::before {
+              content: counters(item, '-') '. ';
+              counter-increment: item;
+            }
+          }
+        }
+
+        li::before {
+          padding-right: 0.25em;
+          content: counter(item) '.';
+          counter-increment: item;
+        }
+
+        li + li {
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+}
+
+
+nav.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+
+    li {
+      position: relative;
+    }
+
+    li > a:nth-of-type(n)::after {
+      position: absolute;
+      display: block;
+      height: 1px;
+      background-color: #666;
+      border-radius: 2px;
+      opacity: 0.8;
+      transition: all 0.12s ease-out;
+      content: '';
+    }
+
+    li > a:nth-of-type(n):hover::after {
+      width: 100%;
+      margin-top: 6px;
+    }
+  }
+}
+
+.post_edit{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.edit_bottun{
+  margin:10px 0 30px;
+  color: white;
+  text-align:center;
+  line-height:30px;
+  background-color: #232f3e;
+  border-radius: 100px;
+  width: 200px;
+  height: 30px;
+  font-weight: bold;
+  text-decoration: none;
+}

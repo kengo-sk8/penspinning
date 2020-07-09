@@ -1,0 +1,12 @@
+.form-group
+  = form.label :youtube_url do
+    動画投稿
+    %span.form-require 必須
+  = form.text_field :youtube_url, placeholder: "youtubeのURLを記載して下さい", class: "input-default"
+
+.form-group
+  = form.label :text do
+    動画の説明
+    %span.form-require 必須
+  = form.text_area :text, placeholder: "動画の説明をご記入ください", rows: "5", class: "input-default"
+

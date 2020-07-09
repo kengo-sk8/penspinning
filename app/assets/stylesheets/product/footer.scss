@@ -1,34 +1,27 @@
 .footer {
   background: navy;
   width: 100%;
-  position: absolute;/*←絶対位置*/
   bottom: 0; /*下に固定*/
-  text-align: right;
-  padding: 0 30px;
+  display: flex;
 }
-
-.footer_content li {
-  display: inline;
-  color: white;
+.footer_left{
+  margin-left: 10px;
+  color: white;  /* これ！！！ */
 
 }
-
+.footer_rigth{
+  margin-right: 30px;
+}
 
 .content_input{
   color: white;
+  margin-right: 30px;
   font-family: "Futura-CondensedExtraBold", Futura, sans-serif;
-}
-.sub_footer{
-  text-align: center;
-  color: white;
+
 }
 
-// .sub_footer{
-//   text-align: center;
-//   background: black;
-//   width: 100%;
-// }
 small {
   font-size: 7px;
   color: white;
+
 }

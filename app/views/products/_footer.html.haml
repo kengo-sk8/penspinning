@@ -1,14 +1,12 @@
 .blank
 %footer.footer
-  .footer_content
-    %ul
-      %li
-        = link_to "利用規約",'#' ,class: 'content_input'
-      %li
-        = link_to "プライバシーポリシー",'#',class: 'content_input'
-      %li
-        = link_to "問い合わせ",'#',class: 'content_input'
-
+  .footer_left
+    %small
+      Penspinning video posting 2020. Producer Kengo Matsuno
+  .footer_rigth
+    = link_to "利用規約", about_path, class: 'content_input'
+    = link_to "プライバシーポリシー", inquiry_path ,class: 'content_input'
+    = link_to "問い合わせ", contact_path ,class: 'content_input'
 
 
 

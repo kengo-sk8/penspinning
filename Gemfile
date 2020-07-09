@@ -21,19 +21,12 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'active_hash'
 gem 'jquery-rails'
-gem 'dotenv-rails' #.envの生成
 gem 'haml-rails' #htmlをhamlにする為、記述した
 gem 'font-awesome-sass' #アイコン
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-end
 
-group :development do
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
   #rspec
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
@@ -45,5 +38,12 @@ group :development do
   gem "selenium-webdriver"
   gem 'rspec-its' # its メソッドga使用可能となる。
   gem 'rspec_junit_formatter'
+end
+
+group :development do
+  gem 'web-console', '>= 3.3.0'
+  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
