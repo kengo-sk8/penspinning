@@ -5,6 +5,7 @@ default: &default
   username: root
   password:
   socket: /tmp/mysql.sock
+  host: <%= ENV['MYSQL_HOST'] %>
 
 development:
   <<: *default
