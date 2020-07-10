@@ -3,7 +3,7 @@
     動画投稿
     %span.form-require 必須
   .post_video_preview
-    = video_tag(@product.image_url.to_s, autoplay: true, muted: true, controls: true, preload: true, loop: true, class: "video-preview", id: "preview")
+    = video_tag(@product.image_url.to_s, autoplay: true, muted: true, controls: true, preload: false, loop: true, class: "video-preview", id: "preview")
     = form.label :image ,"動画をアップロード", class: "image_input_btn"
     = form.file_field :image, accept: 'video/*', class: "image_form" ,onchange: 'previewImage(preview)'
     = form.hidden_field :image_cache
@@ -11,15 +11,13 @@
     ※ 動画はmp4の拡張子のみ投稿できます。こちらのサイトからmp4に変換できます。
     = link_to "mp4に変換",  "https://www.aconvert.com/jp/video/mov-to-mp4/",class: "video_site"
     %br/
-    ※ 投稿できる動画のデータ最大要領は10MBです。
-    %p
-
+    ※ 投稿できる動画のデータ最大要領は10MBまでです。
 
 .form-group
   = form.label :text do
     動画の説明
     %span.form-require 必須
-  = form.text_area :text, placeholder: "動画の説明をご記入ください", rows: "5", class: "input-default"
+  = form.text_area :text, placeholder: "動画の説明を500文字以内でご記入ください", rows: "5", class: "textarea-default"
 
 -# ユーチューブの投稿
 -# = form.label :youtube_url do
