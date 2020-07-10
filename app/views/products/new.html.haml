@@ -1,6 +1,7 @@
 .form
   %h2.form_title
     動画の投稿
+  = render 'error_message', locals: {product: @product}
   = form_with(model: @product, local: true) do |form|
     .main_post
       = render partial: "form", locals: { form: form }

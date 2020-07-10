@@ -6,13 +6,6 @@ class Product < ApplicationRecord
   belongs_to_active_hash :pen_history
   has_many :category
 
-  validate :check_image
-  def check_image
-    if !['.mp4', '.mov'].include?(File.extname(name).downcase)
-        errors.add(:image, "mp4, mpvのみアップロードできます。")
-    elsif file.size > 1.megabyte
-        errors.add(:image, "10MBまでアップロードできます")
-    end
-  end
+  validates :image, :text, :pen_history, :category_id, presence: true
 
 end
