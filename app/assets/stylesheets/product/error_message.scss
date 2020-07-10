@@ -1,0 +1,23 @@
+.alert {
+  color:#262626;
+  background:#FFEBE8;
+  text-align: center;
+  border:2px solid #990000;
+  padding:12px 0 12px 0; //上 右 下 左
+  font-weight:850;
+  line-height: 28px
+}
+
+.notice {
+  color:#262626;
+  background:#FFEBE8;
+  text-align: center;
+  border:2px solid #990000;
+  padding:12px 0 12px 0;
+  font-weight:850;
+  line-height: 28px
+}
+
+.field_with_errors {
+  display: contents;
+}

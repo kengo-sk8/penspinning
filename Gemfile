@@ -24,6 +24,8 @@ gem 'jquery-rails'
 gem 'haml-rails' #htmlをhamlにする為、記述した
 gem 'font-awesome-sass' #アイコン
 gem 'ancestry' #カテゴリーを作成する為、導入した
+gem 'active_storage_validations'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

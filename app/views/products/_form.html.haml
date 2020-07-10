@@ -7,7 +7,12 @@
     = form.label :image ,"動画をアップロード", class: "image_input_btn"
     = form.file_field :image, accept: 'video/*', class: "image_form" ,onchange: 'previewImage(preview)'
     = form.hidden_field :image_cache
-
+  %small.note
+    ※ 動画はmp4の拡張子のみ投稿できます。こちらのサイトからmp4に変換できます。
+    = link_to "mp4に変換",  "https://www.aconvert.com/jp/video/mov-to-mp4/",class: "video_site"
+    %br/
+    ※ 投稿できる動画のデータ最大要領は10MBです。
+    %p
 
 
 .form-group
