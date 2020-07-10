@@ -2,8 +2,8 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :show, :update, :destroy]
 
   def index
-    @parents = Category.order("id ASC").limit(16)
     @products = Product.all
+    @parents = Category.order("id ASC").limit(16)
   end
 
   def show
@@ -16,9 +16,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    # url = params[:product][:youtube_url]
-    # url = url[32..42]
-    # @product.youtube_url = url
     if @product.save
       render :create
     else
@@ -38,7 +35,7 @@ class ProductsController < ApplicationController
   def edit
     @parents = Category.order("id ASC").limit(16)
     # 下記コードは簡易プレビュー用のデータ受け渡し記述
-    # @product.image.cache! unless @product.image.blank?
+    @product.image.cache! unless @product.image.blank?
   end
 
   def update
