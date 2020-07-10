@@ -1,28 +1,23 @@
 .footer {
-  background: #232f3e;;
+  background: #232f3e;
   width: 100%;
   bottom: 0; /*下に固定*/
-
-}
-
-.footer_rigth{
-  color: white;  /* これ！！！ */
-
-}
-.footer_left{
-  margin-right: auto;
-  text-decoration: none;
+  text-align: right;
 }
 
 .content_input{
   color: white;
-  margin-left: 30px;
   font-family: "Futura-CondensedExtraBold", Futura, sans-serif;
   text-decoration: none;
-}
-
-.overview_input {
-  font-size: 5px;
-  color: white;
   margin-right: 20px;
 }
+
+// .footer_left{
+//   text-decoration: none;
+//   display: inline-block;
+// }
+
+// .overview_input {
+//   font-size: 5px;
+//   color: white;
+// }
