@@ -6,18 +6,13 @@ class Product < ApplicationRecord
   belongs_to_active_hash :pen_history
   has_many :category
 
-  validate :image_content_type, if: :was_attached?
-  # was_attached?には、[?]がついてるため、true falseのよく割りを果たしている
-  def image_content_type
-    extension = ['image/mov', 'image/mp4']
-    errors.add(:image, "の拡張子が間違っています") unless image.content_type.in?(extension)
+  validate :check_image
+  def check_image
+    if !['.mp4', '.mov'].include?(File.extname(name).downcase)
+        errors.add(:image, "mp4, mpvのみアップロードできます。")
+    elsif file.size > 1.megabyte
+        errors.add(:image, "10MBまでアップロードできます")
+    end
   end
-
-  def was_attached?
-    self.image.attached?
-  end
-
-
-
 
 end
