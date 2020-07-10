@@ -3,8 +3,9 @@ class CreateProducts < ActiveRecord::Migration[5.2]
     create_table :products do |t|
       t.string :text
       t.string :youtube_url
-      t.string :video
-      t.references :pen_type
+      t.string :image
+      t.references :pen_history
+      t.references :category
       t.timestamps
     end
   end

@@ -2,26 +2,27 @@
   background: navy;
   width: 100%;
   bottom: 0; /*下に固定*/
-  display: flex;
+
 }
-.footer_left{
-  margin-left: 10px;
+
+.footer_rigth{
   color: white;  /* これ！！！ */
 
 }
-.footer_rigth{
-  margin-right: 30px;
+.footer_left{
+  margin-right: auto;
+  text-decoration: none;
 }
 
 .content_input{
   color: white;
-  margin-right: 30px;
+  margin-left: 30px;
   font-family: "Futura-CondensedExtraBold", Futura, sans-serif;
-
+  text-decoration: none;
 }
 
-small {
-  font-size: 7px;
+.overview_input {
+  font-size: 5px;
   color: white;
-
+  margin-right: 20px;
 }

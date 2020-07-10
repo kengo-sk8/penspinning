@@ -2,14 +2,12 @@
   background-color: #fff;
   width: 70%;
   overflow: scroll;
-  margin-top:20px;
+  margin-top:0px;
   margin-right:auto;
   margin-bottom:0;
   margin-left:auto;
 
 }
-
-
 .form_title {
   font-size: 30px;
   margin-bottom: 3px inset;
@@ -18,7 +16,6 @@
   font-weight: bold;
 }
 .main_post {
-  min-height: 300px;
   border-top: 3px solid #eee;
   padding: 40px 40px 0;
 }
@@ -73,12 +70,6 @@
   font-weight: 600;
 }
 
-.select-wrap {
-  margin: 8px 0 0;
-  position: relative;
-  background-color: white;
-  height: 50px;
-  }
 .select-default {
   position: relative;
   z-index: 2;
@@ -105,30 +96,90 @@
   border-top: 1px solid #eee;
   padding: 40px 40px 0;
 }
-.required-item {
-  line-height: 48px;
-  margin-right: auto;
-  label {
-    font-weight: 600;
+
+// カテゴリー
+.select-wrap {
+  margin: 8px 0 0;
+  &__box {
+    position: relative;
+    .fa-angle-down {
+      position: absolute;
+      right: 16px;
+      top: 40%;
+      z-index: 10;
+      color: #888;
+      font-size: 25px;
+      transform: translate(0, -50%);
+      float: right;
+    }
+    &--select {
+      width: 100%;
+      background-color: gray;
+      margin-bottom: 15px;
+      z-index: 2;
+      height: 48px;
+      padding: 0 16px;
+      border-radius: 4px;
+      background: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
   }
-  span {
-    background: #ea352d;
-    margin: 0 0 0 8px;
-    padding: 2px 4px;
-    border-radius: 2px;
-    color: #fff;
-    font-size: 12px;
-    vertical-align: top;
+  .child {
+    display: none;
+    position: relative;
+    .fa-angle-down {
+      position: absolute;
+      right: 16px;
+      top: 40%;
+      z-index: 10;
+      color: #888;
+      font-size: 25px;
+      transform: translate(0, -50%);
+      float: right;
+    }
+  }
+  .grand_child {
+    display: none;
+    position: relative;
+    .fa-angle-down {
+      position: absolute;
+      right: 16px;
+      top: 40%;
+      z-index: 10;
+      color: #888;
+      font-size: 25px;
+      transform: translate(0, -50%);
+      float: right;
+    }
+  }
+}
+
+// 投稿編集画面用
+.child-edit {
+  position: relative;
+  .fa-angle-down {
+    position: absolute;
+    right: 16px;
+    top: 40%;
+    z-index: 10;
+    color: #888;
+    font-size: 25px;
+    transform: translate(0, -50%);
+    float: right;
   }
 }
 
 
+// submitボタン
 .post{
-  margin-top: 10px;
+  margin-top: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .form_submit_bottun{
   color: white;
@@ -137,5 +188,18 @@
   width: 200px;
   height: 30px;
   font-weight: bold;
-
 }
+
+#parent,#child,#grand_child{
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 48px;
+  margin: 10px 0;
+  padding: 0px 16px;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+

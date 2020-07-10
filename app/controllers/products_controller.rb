@@ -2,10 +2,12 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :show, :update, :destroy]
 
   def index
+    @parents = Category.order("id ASC").limit(16)
     @products = Product.all
   end
 
   def show
+    @parents = Category.order("id ASC").limit(16)
   end
 
   def new
@@ -34,20 +36,29 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @parents = Category.order("id ASC").limit(16)
+    # 下記コードは簡易プレビュー用のデータ受け渡し記述
+    # @product.image.cache! unless @product.image.blank?
   end
 
   def update
+    @parents = Category.order("id ASC").limit(16)
     if @product.update(product_params)
       render :update
     else
       flash[:alert] = '正しく入力してください'
-    redirect_to edit_product_path
+    redirect_to edit_product_path(@product.id)
     end
+  end
+
+  def mid_category
+    @mid_categories = Category.where(ancestry: params[:big_category_id])
+    render json: @mid_categories
   end
 
     private
     def product_params
-      params.require(:product).permit(:pen_type_id, :youtube_url, :text)
+      params.require(:product).permit(:pen_history_id, :category_id, :youtube_url, :text ,:image,:image_cache)
     end
 
     def set_product

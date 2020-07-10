@@ -1,19 +1,31 @@
 .form
   = form_with(model: @product, local: true) do |form|
     %h2.form_title
-      動画の投稿
+      編集画面
     .main_post
       = render partial: "form", locals: { form: form }
       .form-group
         = form.label :pen_tyep_id do
-          ペンの種類
+          ペン回し歴
           %span.form-require 必須
         %div
           .select-wrap
-            = form.collection_select :pen_type_id, PenType.all, :id, :value, {prompt: "選択して下さい", selected: @product.id},class: "select-default"
+            = form.collection_select :pen_history_id, PenHistory.all, :id, :value, {prompt: "選択して下さい", selected: @product.id},class: "select-default"
+      .form-group.category
+        %label
+        ペンの種類
+        %span.form-require 必須
+        .select-wrap
+          - @parents.each do |parent|
+            - if @product.category_id == parent.id
+              .select-wrap__box.parent
+                = form.collection_select(:category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択して下さい", selected: parent.parent.id}, {id: "parent"})
+              .child-edit
+                = form.collection_select(:category_id, Category.where(params[:category_id]), :id, :name, {prompt: "選択して下さい", selected: parent.id}, {id: "child"})
 
-      .post
-        = form.submit "投稿",class: "form_submit_bottun"
-      .post
-        = link_to "戻る", root_path, class: "form_submit_bottun"
 
+    .post
+      = form.submit "投稿",class: "form_submit_bottun"
+    .post_edit
+      = link_to "戻る", root_path, class: "edit_bottun"
+.blank
