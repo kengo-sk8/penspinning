@@ -1,9 +1,14 @@
 .form-group
-  = form.label :image do
+  .post_video
     動画投稿
     %span.form-require 必須
-  = form.file_field :image, accept: 'video/*', class: "input-default"
-  = form.hidden_field :image_cache
+  .post_video_preview
+    = video_tag(@product.image_url.to_s, autoplay: true, muted: true, controls: true, preload: true, loop: true, class: "video-preview", id: "preview")
+    = form.label :image ,"動画をアップロード", class: "image_input_btn"
+    = form.file_field :image, accept: 'video/*', class: "image_form" ,onchange: 'previewImage(preview)'
+    = form.hidden_field :image_cache
+
+
 
 .form-group
   = form.label :text do
@@ -19,5 +24,4 @@
 
 -# 簡易videoプレヴュー表示
 -# = video_tag(@product.image_url.to_s, autoplay: false, muted: true, controls: true, preload: true, width: 550) if @product.image && @product.image.url.to_s
--# = form.file_field :image, accept: 'video/*', class: "input-default"
--# = form.hidden_field :image_cache
+
