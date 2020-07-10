@@ -1,8 +1,9 @@
 .form-group
-  = form.label :youtube_url do
+  = form.label :image do
     動画投稿
     %span.form-require 必須
-  = form.text_field :youtube_url, placeholder: "youtubeのURLを記載して下さい", class: "input-default"
+  = form.file_field :image, accept: 'video/*', class: "input-default"
+  = form.hidden_field :image_cache
 
 .form-group
   = form.label :text do
@@ -10,3 +11,13 @@
     %span.form-require 必須
   = form.text_area :text, placeholder: "動画の説明をご記入ください", rows: "5", class: "input-default"
 
+-# ユーチューブの投稿
+-# = form.label :youtube_url do
+-#     動画投稿
+-#     %span.form-require 必須
+-#   = form.text_field :youtube_url, placeholder: "youtubeのURLを記載して下さい", class: "input-default"
+
+-# 簡易videoプレヴュー表示
+-# = video_tag(@product.image_url.to_s, autoplay: false, muted: true, controls: true, preload: true, width: 550) if @product.image && @product.image.url.to_s
+-# = form.file_field :image, accept: 'video/*', class: "input-default"
+-# = form.hidden_field :image_cache

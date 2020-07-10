@@ -10,16 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_07_042556) do
+ActiveRecord::Schema.define(version: 2020_07_09_130106) do
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "product_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
+    t.index ["product_id"], name: "index_categories_on_product_id"
+  end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "text"
     t.string "youtube_url"
-    t.string "video"
-    t.bigint "pen_type_id"
+    t.string "image"
+    t.bigint "pen_history_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pen_type_id"], name: "index_products_on_pen_type_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["pen_history_id"], name: "index_products_on_pen_history_id"
   end
 
 end
