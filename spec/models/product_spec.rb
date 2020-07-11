@@ -1,13 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  describe '#create' do #describeは、ネストして作成する事が出来る。「productクラスにあるcreateメソッドをテストするまとまり」であることを示している。
-    #describeとdoの間にメソッド名を書く際は#をつけるのが慣習らしい。
 
-    it "textが500文字以内でないと登録できないこと" do
-      product = FactoryBot.build(:product, text: "a" * 501)
-      product.valid?
-      expect(product).to be_invalid
+
+  describe '#create' do #describeは、ネストして作成する事が出来る。「productクラスにあるcreateメソッドをテストするまとまり」であることを示している。
+    #describeとdoの間にメソッド名を書く際は#をつけるのが慣習らしい
+    describe "動画コメントテキストの文字制限" do
+      #パスワードが6桁の時と５桁の時のテストを行うことで、どの位置からバリデーションが用意されているのか可視化している
+      context "テキストの文字量が500以下であること" do
+        it "正しい" do
+          @product = FactoryBot.build(:product, text: "a" * 499 )
+          expect(@product).to be_valid
+        end
+      end
     end
 
     it "imageがない場合は登録できないこと" do
@@ -40,10 +45,14 @@ RSpec.describe Product, type: :model do
 
   describe '#update' do
 
-    it "textが500文字以内でないと登録できないこと" do
-      product = FactoryBot.build(:product, text: "a" * 501)
-      product.valid?
-      expect(product).to be_invalid
+    describe "動画コメントテキストの文字制限" do
+      #パスワードが6桁の時と５桁の時のテストを行うことで、どの位置からバリデーションが用意されているのか可視化している
+      context "テキストの文字量が500以下であること" do
+        it "正しい" do
+          @product = FactoryBot.build(:product, text: "a" * 499 )
+          expect(@product).to be_valid
+        end
+      end
     end
 
     it "textがない場合は登録できないこと" do
@@ -66,3 +75,7 @@ RSpec.describe Product, type: :model do
   end
 end
 
+
+
+ # include マッチャを使うと、「配列に～が含まれていること」を検証することができます。
+ # be_xxx (predicateマッチャ) 戻り値が true / false になるメソッドを be_empty のような形式で検証できる
