@@ -1,25 +1,17 @@
 = render "header"
 .blank
 %main.main
-  .contents
+  .post
     - @products.each do |product|
-      .content_post
+      .post_video
         = video_tag(product.image_url.to_s, autoplay: false, muted: true, controls: true, preload: true, width: 550) if product.image?
-      .content_post
+      .post_content
         = product.pen_history.value
-      .content_post
+      .post_text
         = simple_format(product.text)
+      .post_show
+        = link_to '詳細', "/products/#{product.id}", method: :get
 
-
-
-      .more
-        %ul.more_list
-          %li
-            = link_to '詳細', "/products/#{product.id}", method: :get
-          %li
-            = link_to '編集', "/products/#{product.id}/edit", method: :get
-          %li
-            = link_to '削除', "/products/#{product.id}", method: :delete
 
 .blank
 = render "footer"

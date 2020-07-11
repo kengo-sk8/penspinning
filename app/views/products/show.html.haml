@@ -3,10 +3,10 @@
 %main.main
   .contents
     .content_post
-      %iframe{src: "https://www.youtube.com/embed/#{@product.youtube_url[32..42]}",allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen: "", frameborder: "0", height: "315", width: "560"}
-    .content_post
+      = video_tag(@product.image_url.to_s, autoplay: false, muted: true, controls: true, preload: true, width: 550) if @product.image?
+    .content_post_history
       = @product.pen_history.value
-    .content_post
+    .content_post_text
       = simple_format(@product.text)
     .more
       %ul.more_list
@@ -14,6 +14,9 @@
           = link_to '編集', "/products/#{@product.id}/edit", method: :get
         %li
           = link_to '削除', "/products/#{@product.id}", method: :delete
+        %li
+          = link_to 'メイン', "/", method: :get
 
-.main_footer
-  = render "footer"
+
+.blank
+= render "footer"

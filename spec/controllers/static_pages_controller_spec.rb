@@ -3,25 +3,20 @@ require 'rails_helper'
 RSpec.describe StaticPagesController, type: :controller do
 
 
-  describe "GET /about" do
-    it "returns http success" do
+  describe "ページ遷移確認" do
+    it "aboutのページに遷移できること" do
       get "about"
       expect(response).to have_http_status(:success)
     end
-  end
 
-  describe "GET /inquiry" do
-    it "returns http success" do
+    it "inquiryのページに遷移できること" do
       get "inquiry"
       expect(response).to have_http_status(:success)
     end
-  end
 
-  describe "GET /contact" do
-    it "returns http success" do
+    it "contactのページに遷移できること" do
       get "contact"
       expect(response).to have_http_status(:success)
     end
   end
-
 end

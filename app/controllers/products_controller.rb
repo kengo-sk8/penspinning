@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
 
   def edit
     @parents = Category.order("id ASC").limit(16)
-    # 下記コードは簡易プレビュー用のデータ受け渡し記述
+    # 下記コードは、編集時に動画データがなくなるため、キャッシュで保存させてる(公式に記述例ある)
     @product.image.cache! unless @product.image.blank?
   end
 

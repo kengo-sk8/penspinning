@@ -32,15 +32,17 @@ group :development, :test do
 
   #rspec
   gem 'rspec-rails'
-  gem 'spring-commands-rspec'
+  gem 'rails-controller-testing'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'spring-commands-rspec'
+  gem 'rspec-its' # its メソッドga使用可能となる。
+  gem 'rspec_junit_formatter'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
   gem "selenium-webdriver"
-  gem 'rspec-its' # its メソッドga使用可能となる。
-  gem 'rspec_junit_formatter'
+
 end
 
 group :development do
