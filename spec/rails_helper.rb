@@ -31,6 +31,11 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  # config.include FactoryBot::Syntax::Methods
+  #factory_botによってインスタンスを作成する際、レシーバーであるFactoryBotというクラスを省略する事が出来る。
+  #その為には、上記のコードを書く必要がある。
+  #(Spec.configure do |config|の直下に「config.include FactoryBot::Syntax::Methods」を記述する)
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
