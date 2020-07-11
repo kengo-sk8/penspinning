@@ -5,19 +5,19 @@ RSpec.describe Product, type: :model do
     #describeとdoの間にメソッド名を書く際は#をつけるのが慣習らしい。
 
     it "textが500文字以内でないと登録できないこと" do
-      product = build(:product, text: "a" * 501)
+      product = FactoryBot.build(:product, text: "a" * 501)
       product.valid?
       expect(product).to be_invalid
     end
 
     it "imageがない場合は登録できないこと" do
-      product = build(:product, image: nil)
+      product = FactoryBot.build(:product, image: nil)
       product.valid?
       expect(product.errors[:image]).to include("を入力してください")
     end
 
     it "textがない場合は登録できないこと" do   #it ~ doの間はそのexampleでどんなテストをしているか説明文を記入する
-      product = build(:product, text: nil)
+      product = FactoryBot.build(:product, text: nil)
       product.valid? #この記述(valid?)により「バリデーションにより保存ができない状態であるか」を確認する。
       expect(product.errors[:text]).to include("を入力してください")
       #errors ： valid?メソッドを利用したインスタンスに対してerrorsメソッドを利用すると、「バリデーションにより保存ができない状態である場合なぜできないのか」を確認する事が出来る。
@@ -26,13 +26,13 @@ RSpec.describe Product, type: :model do
     end
 
     it "pen_history_idがない場合は登録できないこと" do
-      product = build(:product, pen_history_id: nil)
+      product = FactoryBot.build(:product, pen_history_id: nil)
       product.valid?
       expect(product.errors[:pen_history_id]).to include("を入力してください")
     end
 
     it "category_idがない場合は登録できないこと" do
-      product = build(:product, category_id: nil)
+      product = FactoryBot.build(:product, category_id: nil)
       product.valid?
       expect(product.errors[:category_id]).to include("を入力してください")
     end
@@ -41,25 +41,25 @@ RSpec.describe Product, type: :model do
   describe '#update' do
 
     it "textが500文字以内でないと登録できないこと" do
-      product = build(:product, text: "a" * 501)
+      product = FactoryBot.build(:product, text: "a" * 501)
       product.valid?
       expect(product).to be_invalid
     end
 
     it "textがない場合は登録できないこと" do
-      product = build(:product, text: nil)
+      product = FactoryBot.build(:product, text: nil)
       product.valid?
       expect(product.errors[:text]).to include("を入力してください")
     end
 
     it "pen_history_idがない場合は登録できないこと" do
-      product = build(:product, pen_history_id: nil)
+      product = FactoryBot.build(:product, pen_history_id: nil)
       product.valid?
       expect(product.errors[:pen_history_id]).to include("を入力してください")
     end
 
     it "category_idがない場合は登録できないこと" do
-      product = build(:product, category_id: nil)
+      product = FactoryBot.build(:product, category_id: nil)
       product.valid?
       expect(product.errors[:category_id]).to include("を入力してください")
     end
