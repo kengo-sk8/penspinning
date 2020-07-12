@@ -1,5 +1,6 @@
-.contents.row
-  .success
-    %h3
-      削除が完了しました。
-    %a.btn{href: "/"} 投稿一覧へ戻る
+.navigation
+  .products-main
+    %h2
+      投稿が完了しました
+      .products-done__main__explanation
+        = link_to "投稿一覧に戻る", root_path, class: "all_return_bottun"

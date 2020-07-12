@@ -8,5 +8,82 @@ body{
   height: 20px;
   width: 100%;
   background-color: #f6f6f6;
+}
+
+//new create update destory
+$accent: #232f3e;
+$black: #292929;
+$dark: #666;
+$darkGray: #999999;
+$gray: #D8D8D8;
+$lightGray: #f5f5f3;
+$white: white;
+
+.navigation{
+	display: flex;
+	align-items: center;
+  justify-content: center;
+  height: 700px;
+}
+// 商品出品完了画面
+.products-main {
+  box-sizing: border-box;
+  text-align: center;
+  background-color: $white;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: medium solid #232f3e;
+}
+
+.products-done__main__explanation {
+  text-align: center;
+
+  margin: 30px 0; //上下 右左
+}
+h2 {
+  padding: 32px 16px;
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.btn {
+  font-size: 20px;
+  border: 2px solid $accent;
+  color: $accent;
+  padding: 10px 20px 10px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.all_return{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.all_return_bottun{
+  margin:10px 0 30px;
+  color: white;
+  text-align:center;
+  line-height:30px;
+  background-color: #232f3e;
+  border-radius: 100px;
+  width: 300px;
+  height: 30px;
+  padding: 5px 40px 5px;
+  font-weight: bold;
+  text-decoration: none;
 
 }
+
+
+
+
+
+

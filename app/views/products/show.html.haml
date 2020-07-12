@@ -8,8 +8,8 @@
       = @product.pen_history.value
     .content_post_text
       = simple_format(@product.text)
-    .more
-      %ul.more_list
+    .post
+      %ul.post_list
         %li
           = link_to '編集', "/products/#{@product.id}/edit", method: :get
         %li

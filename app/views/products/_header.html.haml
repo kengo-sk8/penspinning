@@ -2,5 +2,13 @@
   .header__title
     = link_to "penspinning videos", '#', class: "header__title--text"
   .header__right
-    = link_to "新規投稿", new_product_path, class: "header__right--btn"
+  - if user_signed_in?
+    = link_to "新規投稿", new_post_path, class: "header__right--btn"
+    = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"
+  - else
+    = link_to "ログイン", new_user_session_path, class: "header__right--btn"
+    = link_to "新規登録", new_user_registration_path, class: "header__right--btn"
+
+
+
 

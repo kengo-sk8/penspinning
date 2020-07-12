@@ -1,6 +1,9 @@
+
 @import "reset";
+@import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "user";
 @import "product/all";
 @import "product/error_message";
 @import "product/post";
@@ -9,4 +12,5 @@
 @import "product/footer";
 @import "static_pages/about";
 @import "static_pages/inquiry";
+
 
