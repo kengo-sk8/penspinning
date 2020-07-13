@@ -1,6 +1,6 @@
 <div class="container-login">
   <h1><%= t('.sign_in') %></h1>
-  <%# <%= render 'shared/flash_messages' %>
+  <%= render 'shared/flash_messages'%>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-group">

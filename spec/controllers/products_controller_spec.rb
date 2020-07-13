@@ -27,16 +27,14 @@ RSpec.describe ProductsController, type: :controller do
         user_id: 1
       )
     end
-    describe "#show" do
       # 正常なレスポンスか？
-      it "showの画面が正常に開くこと" do
-        get :show, params: {id: @product.id}
-        expect(response).to be_successful
-      end
-      it "showの画面に遷移後、200レスポンスが返ってくること" do
-        get :show, params: {id: @product.id}
-        expect(response).to have_http_status "200"
-      end
+    it "showの画面が正常に開くこと" do
+      get :show, params: {id: @product.id}
+      expect(response).to be_successful
+    end
+    it "showの画面に遷移後、200レスポンスが返ってくること" do
+      get :show, params: {id: @product.id}
+      expect(response).to have_http_status "200"
     end
   end
 

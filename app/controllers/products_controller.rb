@@ -48,6 +48,7 @@ class ProductsController < ApplicationController
     end
   end
 
+  #カテゴリー機能
   def mid_category
     @mid_categories = Category.where(ancestry: params[:big_category_id])
     render json: @mid_categories
