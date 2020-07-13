@@ -1,13 +1,16 @@
-%header.header
-  %nav.navbar.navbar-expand.navbar-light
+%header.header1
+  %nav.navbar.navbar-expand.navbar-light.up
     = link_to "Penspinning Video", root_path, class: 'navbar-brand text-white font-weight-bold'
-  %nav.navbar.navbar-expand.navbar-light
+.header2
+  %nav.navbar.navbar-expand.navbar-light.down
     %ul.navbar-nav.left__title
       - if user_signed_in?
         %li.nav-item.active
-          = link_to "マイページ", "/users/#{current_user.id}", class: 'nav-link text-white border'
+          = link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link text-white border text-align: right'
         %li.nav-item.active
           = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link text-white border'
+        %li.nav-item.active
+          = link_to "マイページ", "/users/#{current_user.id}", class: 'nav-link text-white border'
         %li.nav-item.active
           = link_to  "投稿する", "/products/new", class: 'nav-link text-white border'
       - else

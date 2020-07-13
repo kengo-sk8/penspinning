@@ -2,16 +2,43 @@ require 'rails_helper'
 
 RSpec.describe Product, type: :model do
 
+  before do
+    @user = FactoryBot.create(:user)
+  end
+
+  it "FactoryBotの登録内容が正しいこと" do
+    user = @user
+    expect(user).to be_valid
+  end
+
+  # 記事の題名、本文、外部キー（user_id）があれば有効。
+  it "コメント、動画、カテゴリー、回し歴、外部キー（user_id）があれば有効であること" do
+    user = @user
+    product = user.products.build(
+      text: "落ちろよおおおおおおおおおおお",
+      image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test.jpg')),
+      category_id: 10,
+      pen_history_id: 3,
+      user_id: 1
+    )
+    expect(product).to be_valid
+  end
 
   describe '#create' do #describeは、ネストして作成する事が出来る。「productクラスにあるcreateメソッドをテストするまとまり」であることを示している。
     #describeとdoの間にメソッド名を書く際は#をつけるのが慣習らしい
       #パスワードが6桁の時と５桁の時のテストを行うことで、どの位置からバリデーションが用意されているのか可視化している
-
-    # it "テキストの文字量が500以下であること" do
-    #   product = FactoryBot.build(:product, text: "a" * 499 )
-    #   product.valid?
-    #   expect(product).to be_valid
-    # end
+    it "テキストの文字量は500以下であること" do
+      user = @user
+      product = user.products.build(
+        text: "a" * 499,
+        image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test.jpg')),
+        category_id: 10,
+        pen_history_id: 3,
+        user_id: 1
+      )
+      product.valid?
+      expect(product).to be_valid
+    end
 
 
     it "imageがない場合は登録できないこと" do
@@ -44,15 +71,24 @@ RSpec.describe Product, type: :model do
 
   describe '#update' do
 
-    # describe "動画コメントテキストの文字制限" do
-    #   #パスワードが6桁の時と５桁の時のテストを行うことで、どの位置からバリデーションが用意されているのか可視化している
-    #   context "テキストの文字量が500以下であること" do
-    #     it "正しい" do
-    #       @product = FactoryBot.build(:product, text: "a" * 499 )
-    #       expect(@product).to be_valid
-    #     end
-    #   end
-    # end
+    it "テキストの文字量は500以下であること" do
+      user = @user
+      product = user.products.build(
+        text: "a" * 499,
+        image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test.jpg')),
+        category_id: 10,
+        pen_history_id: 3,
+        user_id: 1
+      )
+      product.valid?
+      expect(product).to be_valid
+    end
+
+    it "imageがない場合は登録できないこと" do
+      product = FactoryBot.build(:product, image: nil)
+      product.valid?
+      expect(product.errors[:image]).to include("を入力してください")
+    end
 
     it "textがない場合は登録できないこと" do
       product = FactoryBot.build(:product, text: nil)
