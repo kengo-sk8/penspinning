@@ -1,11 +1,8 @@
 = render "header"
 .blank
 %main.main
-  .contents
-    %p
-      = @name
-      さんの投稿一覧
-    .content_post
+  .post
+    .post_video
       = video_tag(@product.image_url.to_s, autoplay: false, muted: true, controls: true, preload: true, width: 550) if @product.image?
     .content_post_history
       = @product.pen_history.value
