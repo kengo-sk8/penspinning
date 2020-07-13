@@ -29,3 +29,4 @@
 .evn
 config/secrets.yml
 .DC_store
+/.idea

@@ -14,18 +14,21 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pry-rails'
-gem 'rails-i18n'
 gem 'dotenv-rails' # 環境変数の管理をするgem
-gem 'carrierwave'
-gem 'mini_magick'
+gem 'carrierwave' #動画投稿機能
+gem 'mini_magick' #動画投稿機能
 gem 'fog-aws'
 gem 'active_hash'
-gem 'jquery-rails'
 gem 'haml-rails' #htmlをhamlにする為、記述した
 gem 'font-awesome-sass' #アイコン
 gem 'ancestry' #カテゴリーを作成する為、導入した
 gem 'active_storage_validations'
-
+gem 'devise'
+gem 'rails-i18n', '~> 5.1' # 日本語化
+gem 'devise-i18n'
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'
+gem 'devise-bootstrap-views', '~> 1.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

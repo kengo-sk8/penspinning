@@ -1,15 +1,15 @@
 = render "header"
 .blank
 %main.main
-  .contents
-    .content_post
+  .post
+    .post_video
       = video_tag(@product.image_url.to_s, autoplay: false, muted: true, controls: true, preload: true, width: 550) if @product.image?
     .content_post_history
       = @product.pen_history.value
     .content_post_text
       = simple_format(@product.text)
-    .more
-      %ul.more_list
+    .post
+      %ul.post_list
         %li
           = link_to '編集', "/products/#{@product.id}/edit", method: :get
         %li

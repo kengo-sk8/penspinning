@@ -1,6 +1,36 @@
 %header.header
-  .header__title
-    = link_to "penspinning videos", '#', class: "header__title--text"
-  .header__right
-    = link_to "新規投稿", new_product_path, class: "header__right--btn"
+  %nav.navbar.navbar-expand.navbar-light
+    = link_to "Penspinning Video", root_path, class: 'navbar-brand text-white font-weight-bold'
+  %nav.navbar.navbar-expand.navbar-light
+    %ul.navbar-nav.left__title
+      - if user_signed_in?
+        %li.nav-item.active
+          = link_to "マイページ", "/users/#{current_user.id}", class: 'nav-link text-white border'
+        %li.nav-item.active
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link text-white border'
+        %li.nav-item.active
+          = link_to  "投稿する", "/products/new", class: 'nav-link text-white border'
+      - else
+        %li.nav-item.active
+          = link_to "新規登録", new_user_registration_path, class: 'nav-link text-white border'
+        %li.nav-item.active
+          = link_to "ログイン", new_user_session_path, class: 'nav-link text-white border'
+
+  -# .header__bar.row
+  -#   %h1.grid-6
+  -#     %a{:href => "/"} Penspinning Videos
+  -#   - if user_signed_in?
+  -#     .user_nav.grid-6
+  -#       %span
+  -#         = current_user.name
+  -#         %ul.user__info
+  -#           %li
+  -#             = link_to "マイページ", "/users/#{current_user.id}"
+  -#             = link_to "ログアウト", destroy_user_session_path, method: :delete
+  -#       = link_to  "投稿する", "/products/new", class: "post"
+  -#   - else
+  -#     .grid-6
+  -#       = link_to "ログイン", new_user_session_path, class: 'post'
+  -#       = link_to "新規登録", new_user_registration_path, class: 'post'
+
 

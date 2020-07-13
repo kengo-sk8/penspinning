@@ -1,0 +1,47 @@
+= render "products/header"
+%main.main
+  %p
+    = @name
+    さんの投稿一覧
+    .post
+    - @products.each do |product|
+      .post_video
+        = video_tag(product.image_url.to_s, autoplay: false, muted: true, controls: true, preload: true, width: 550) if product.image?
+      .content_post_history
+        = product.pen_history.value
+      .content_post_text
+        = simple_format(product.text)
+      .post
+        %ul.post_list
+          %li
+            = link_to '編集', "/products/#{product.id}/edit", method: :get
+          %li
+            = link_to '削除', "/products/#{product.id}", method: :delete
+          %li
+            = link_to 'メイン', "/", method: :get
+
+
+-# .blank
+-# %main.main
+-#   .contents
+-#     %p
+-#       = @name
+-#       さんの投稿一覧
+-#     .content_post
+-#       = video_tag(product.image_url.to_s, autoplay: false, muted: true, controls: true, preload: true, width: 550) if product.image?
+-#     .content_post_history
+-#       = product.pen_history.value
+-#     .content_post_text
+-#       = simple_format(product.text)
+-#     .post
+-#       %ul.post_list
+-#         %li
+-#           = link_to '編集', "/products/#{@product.id}/edit", method: :get
+-#         %li
+-#           = link_to '削除', "/products/#{@product.id}", method: :delete
+-#         %li
+-#           = link_to 'メイン', "/", method: :get
+
+
+.blank
+= render "products/footer"

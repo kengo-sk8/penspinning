@@ -5,15 +5,14 @@ RSpec.describe Product, type: :model do
 
   describe '#create' do #describeは、ネストして作成する事が出来る。「productクラスにあるcreateメソッドをテストするまとまり」であることを示している。
     #describeとdoの間にメソッド名を書く際は#をつけるのが慣習らしい
-    describe "動画コメントテキストの文字制限" do
       #パスワードが6桁の時と５桁の時のテストを行うことで、どの位置からバリデーションが用意されているのか可視化している
-      context "テキストの文字量が500以下であること" do
-        it "正しい" do
-          @product = FactoryBot.build(:product, text: "a" * 499 )
-          expect(@product).to be_valid
-        end
-      end
-    end
+
+    # it "テキストの文字量が500以下であること" do
+    #   product = FactoryBot.build(:product, text: "a" * 499 )
+    #   product.valid?
+    #   expect(product).to be_valid
+    # end
+
 
     it "imageがない場合は登録できないこと" do
       product = FactoryBot.build(:product, image: nil)
@@ -45,15 +44,15 @@ RSpec.describe Product, type: :model do
 
   describe '#update' do
 
-    describe "動画コメントテキストの文字制限" do
-      #パスワードが6桁の時と５桁の時のテストを行うことで、どの位置からバリデーションが用意されているのか可視化している
-      context "テキストの文字量が500以下であること" do
-        it "正しい" do
-          @product = FactoryBot.build(:product, text: "a" * 499 )
-          expect(@product).to be_valid
-        end
-      end
-    end
+    # describe "動画コメントテキストの文字制限" do
+    #   #パスワードが6桁の時と５桁の時のテストを行うことで、どの位置からバリデーションが用意されているのか可視化している
+    #   context "テキストの文字量が500以下であること" do
+    #     it "正しい" do
+    #       @product = FactoryBot.build(:product, text: "a" * 499 )
+    #       expect(@product).to be_valid
+    #     end
+    #   end
+    # end
 
     it "textがない場合は登録できないこと" do
       product = FactoryBot.build(:product, text: nil)
