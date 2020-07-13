@@ -18,6 +18,10 @@
           = link_to "新規登録", new_user_registration_path, class: 'nav-link text-white border'
         %li.nav-item.active
           = link_to "ログイン", new_user_session_path, class: 'nav-link text-white border'
+        %li.nav-item.active
+          = link_to 'ゲストログイン（閲覧用）',users_guest_sign_in_path, method: :post, class: 'nav-link text-white border'
+.header3
+  = render 'shared/flash_messages'
 
   -# .header__bar.row
   -#   %h1.grid-6
