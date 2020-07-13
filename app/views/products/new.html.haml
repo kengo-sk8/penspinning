@@ -15,17 +15,18 @@
             .select-wrap
               = form.collection_select :pen_history_id, PenHistory.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
         .form-group.category
-          = form.label :main_name do
-            ペンの種類
-            %span.form-require 必須
-            .select-wrap
-              .select-wrap__box.parent
-                %select#parent.select-wrap__box--select
-                  %option{value: 0} 選択して下さい
-                  - @parents.each do |parent|
-                    %option{value: "#{parent.id}"} #{parent.name}
-              .child
-                = form.collection_select(:category_id, [], :id, :name, {prompt: "選択して下さい"},{class: 'select-wrap__box--select', id: "child",})
+          %label
+          ペンの種類
+          %span.form-require 必須
+          .select-wrap
+            .select-wrap__box.parent
+              %select#parent.select-wrap__box--select
+                %option{value: 0} 選択して下さい
+                - @parents.each do |parent|
+                  %option{value: "#{parent.id}"} #{parent.name}
+            .child
+              = form.collection_select(:category_id, [], :id, :name, {prompt: "選択して下さい"},{class: 'select-wrap__box--select',id: "child"})
+
         .form_submit
           = form.submit "投稿",class: "form_submit_bottun"
         .return

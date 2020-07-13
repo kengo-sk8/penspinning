@@ -1,20 +1,37 @@
-.header{
-  height: 56px;
+.header1{
+  height: 35px;
   width: 100%;
   background-color: #232f3e;;
   display: flex;
-  justify-content: space-between;
-  padding: 0 70px;
+  border-bottom: inset 2px #ff0000;
+}
+.navbar.navbar-expand.navbar-light.up{
+margin-left: 50px;
+
+}
+
+.header2{
+  height: 37px;
+  width: 100%;
+  background-color: #232f3e;;
+  display: flex; //横並び？
+  justify-content: flex-end; //文字右寄せ
+  position: relative;
+}
+.navbar.navbar-expand.navbar-light.down{
+  text-align: right;
+  transform: translateY(0%) //文字上寄せ
 }
 
 .border{
-  padding:6px 70px;
-  border: 2px solid $accent;
-  border-radius: 10px;
+  padding:2px 0;
+  border: 5px solid $accent;
+  border-radius: 7px;
 }
-
 .nav-item.active{
+  display: inline;
   padding: 0 10px;
+  font-size: 12px;
 }
 
 // }

@@ -6,7 +6,7 @@
   .post
     - @products.each do |product|
       .post_video
-        = video_tag(product.image_url.to_s, autoplay: true, muted: true, controls: true, preload: false, loop: true, class: "video-preview", id: "preview") if product.image?
+        = video_tag(product.image_url.to_s, autoplay: false, muted: true, controls: true, preload: false, loop: true, class: "video-preview", id: "preview") if product.image?
       .post_content
         = product.pen_history.value
       .post_text
