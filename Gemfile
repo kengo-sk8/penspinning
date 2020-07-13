@@ -25,7 +25,7 @@ gem 'ancestry' #カテゴリーを作成する為、導入した
 gem 'active_storage_validations'
 gem 'devise'
 gem 'rails-i18n', '~> 5.1' # 日本語化
-gem 'devise-i18n' # 日本語化
+gem 'devise-i18n'
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 gem 'devise-bootstrap-views', '~> 1.0'
