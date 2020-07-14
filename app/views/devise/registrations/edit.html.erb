@@ -50,12 +50,12 @@
     </div>
 
     <div class="form-group">
-      <%= f.submit t('.update'), class: 'btn btn-primary btn-block text-white' %>
+      <%= f.submit t('.update'), class: 'login_btn btn-primary btn-block text-white' %>
     </div>
   <% end %>
   <hr class="devise-link my-5">
   <div class="form-group">
-    <%= link_to "トップページ", root_path, class: 'btn btn-info btn-block mb-4 text-white' %>
-    <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: {confirm: t('.are_you_sure')}, method: :delete, class: 'btn btn-danger btn-block text-white' %>
+    <%= link_to "トップページ", root_path, class: 'login_btn btn-info btn-block mb-4 text-white' %>
+    <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: {confirm: t('.are_you_sure')}, method: :delete, class: 'login_btn btn-danger btn-block text-white' %>
   </div>
 </div>

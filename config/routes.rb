@@ -9,9 +9,9 @@ Rails.application.routes.draw do
 
   root to: "products#index"
 
-  resources :users, only: :show
+  resources :users, only: :show #マイページ
   resources :products do
-    collection do
+    collection do  # ↓カテゴリー機能
       get 'products/new/mid_category', to: 'products#mid_category'
     end
   end

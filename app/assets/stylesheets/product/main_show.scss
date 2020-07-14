@@ -1,0 +1,67 @@
+.main{
+  // background-color: #fff;
+  // // height: 600px;
+  // overflow: scroll;
+  margin-top:0px;
+  margin-right:auto;
+  margin-bottom:0;
+  margin-left:auto;
+  position: relative;/*←相対位置*/
+  // box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+  background-color: #f6f6f6;
+  min-width: 650px;
+
+}
+.show_main{
+  margin: 0 auto 0;
+  background-color: #fff;
+  height: 600px;
+  width: 70%;
+  overflow: scroll;
+}
+
+
+.content{
+  padding: 10px;
+  border-bottom: 1px solid #f6f6f6;
+  display: flex;
+  &__left{
+    padding-right: 20px;
+    &--image{
+      height: 55px;
+      width: 55px;
+      border: solid 1px;
+    }
+  }
+  &__right{
+    width: calc(100%-100px);
+    &__top{
+      font-size: 20px;
+      font-weight: bold;
+      &--title{
+        text-decoration: none;
+        color: #000000;
+      }
+    }
+    &__bottom{
+      font-size: 15px;
+      color: #999;
+      display: flex;
+      &--userName{
+        &--btn{
+          text-decoration: none;
+          color: #999;
+        }
+      }
+      &--date{
+        margin-left: 20px;
+      }
+    }
+  }
+  &__title{
+    font-size: 30px;
+    font-weight: bold;
+    padding-top: 30px;
+    text-align: center;
+  }
+}

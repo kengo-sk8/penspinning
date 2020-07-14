@@ -1,22 +1,36 @@
 = render "header"
 .blank
 %main.main
-  .post
-    .post_video
-      = video_tag(@product.image_url.to_s, autoplay: false, muted: true, controls: true, preload: true, width: 550) if @product.image?
-    .content_post_history
-      = @product.pen_history.value
-    .content_post_text
-      = simple_format(@product.text)
-    .post
-      %ul.post_list
-      - if user_signed_in? && current_user.id == @product.user_id
-        %li
-          = link_to '編集', "/products/#{@product.id}/edit", method: :get
-        %li
-          = link_to '削除', "/products/#{@product.id}", method: :delete
-    .return
-      = link_to "戻る", root_path, class: "return_bottun"
+  .show_main
+    .show_main_content
+      .content__left
+        .content__left--image
+      .content__right
+        .content__right__top
+          = @product.user.name
+        .content__right__bottom
+          .content__right__bottom--date
+            = @product.created_at.strftime('%Y/%m/%d %H:%M:%S')
+
+
+
+
+
+  -#   .post_video
+  -#     = video_tag(@product.image_url.to_s, autoplay: false, muted: true, controls: true, preload: true, width: 550) if @product.image?
+  -#   .content_post_history
+  -#     = @product.pen_history.value
+  -#   .content_post_text
+  -#     = simple_format(@product.text)
+  -#   .post
+  -#     %ul.post_list
+  -#     - if user_signed_in? && current_user.id == @product.user_id
+  -#       %li
+  -#         = link_to '編集', "/products/#{@product.id}/edit", method: :get
+  -#       %li
+  -#         = link_to '削除', "/products/#{@product.id}", method: :delete
+  -#   .return
+  -#     = link_to "戻る", root_path, class: "return_bottun"
 
 .blank
 = render "footer"

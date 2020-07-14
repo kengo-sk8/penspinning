@@ -1,0 +1,120 @@
+.main{
+  // background-color: #fff;
+  // // height: 600px;
+  // overflow: scroll;
+  margin-top:0px;
+  margin-right:auto;
+  margin-bottom:0;
+  margin-left:auto;
+  position: relative;/*←相対位置*/
+  // box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+  background-color: #f6f6f6;
+  min-width: 650px;
+
+}
+.show_user{
+  margin: 0 auto 0;
+  background-color: #fff;
+  height: 100%;
+  width: 800px;
+  overflow: scroll;
+}
+
+//2つに分離するため設定した
+.content_main{
+  display: flex;
+  justify-content:center;
+}
+
+
+//動画関連のcss
+.content_middle_left{
+  border: medium solid #ff00ff;
+  margin: 5px;
+  padding: 5px;
+}
+.content_middle_right{
+  border: medium solid red;
+  margin: 5px;
+  padding: 10px;
+}
+.content_video{
+  text-align: center;
+}
+.user_show_video{
+  width: 100%;
+  margin: 10px 0 0;
+}
+#user_show_video_preview{
+  width: 400px;
+  height: 300px;
+}
+
+
+// アイコン 名前 時間
+.content_icon{
+  padding: 5px;
+  border: medium solid #ff00ff;
+  display: flex;
+  &_left{
+    padding-right: 20px;
+    &_image{
+      height: 80px;
+      width: 80px;
+      border: solid 1px;
+    }
+  }
+}
+.content__right{
+  margin-top: 10px;
+  width: calc(100%-100px);
+  &__top{
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+.content__right__bottom{
+  font-size: 15px;
+  color: #999;
+  display: flex;
+}
+.content__right__bottom--date{
+  margin-left: 0px;
+  margin-top: 10px;
+}
+
+.content_posts{
+  width: 100%;
+  background-color: #fff;
+  border: medium solid #ff00ff;
+
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #f8f8f8;
+}
+tbody {
+  tr {
+    th {
+      border: medium solid #ff00ff;
+      width: 40%;
+      background-color: #eee;
+      font-weight: 400;
+      padding: 8px;
+      border: 1px solid #dedede;
+      font-size: 14px;
+      text-align: center;
+    }
+    td {
+      width: 60%;
+      text-align: center;
+      padding: 7px 15px;
+      border: 1px solid #dedede;
+      font-size: 14px;
+    }
+  }
+}
+.category_font{
+  color: black;
+}

@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 10}
   validates :email, presence: true, uniqueness: true, length: { maximum: 100 }
-  # validates :password, :password_confirmation, presence: true, length: { in: 6..30 }
+  validates :password_confirmation, presence: true, length: { in: 6..30 }
   # uniqueness 同一データは一つのみ許可する
 
   #ゲストログイン
