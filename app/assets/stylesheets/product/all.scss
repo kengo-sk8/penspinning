@@ -25,7 +25,7 @@ $white: white;
   justify-content: center;
   height: 700px;
 }
-// 商品出品完了画面
+// new,update,showの画面
 .products-main {
   box-sizing: border-box;
   text-align: center;
@@ -39,9 +39,12 @@ $white: white;
   border: medium solid #232f3e;
 }
 
+.products＿title{
+  margin-bottom: 50px;
+}
+
 .products-done__main__explanation {
   text-align: center;
-
   margin: 30px 0; //上下 右左
 }
 h2 {
