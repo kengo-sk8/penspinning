@@ -4,83 +4,60 @@
     .blank
     .show_user
       .content_main
-        .content_middle_left
+        .content_left
           .content_video
             = video_tag(product.image_url.to_s, autoplay: false, muted: true, controls: true, preload: true, class: "user_show_video", id: "user_show_video_preview") if product.image?
-        .content_middle_center
+        .content_right
+          .content_icon
+            .content_icon_left
+              .content_icon_left_image
+            .content__right
+              .content__right__top
+                = product.user.name
+              .content__right__bottom
+                .content__right__bottom--date
+                  = product.created_at.strftime('%Y/%m/%d %H:%M:%S')
           .content_posts
-            = simple_format(product.text)
-        -# .content_middle_right
-        -#   .content_icon
-        -#     .content_icon_left
-        -#       .content_icon_left_image
-        -#     .content__right
-        -#       .content__right__top
-        -#         = product.user.name
-        -#       .content__right__bottom
-        -#         .content__right__bottom--date
-        -#           = product.created_at.strftime('%Y/%m/%d %H:%M:%S')
-
-        -#   .content_posts
-        -#     %table
-        -#       %tbody
-        -#         %tr
-        -#           %th ペン回し歴
-        -#           %td
-        -#             = product.pen_history.value
-        -#   .content_posts
-        -#     %table
-        -#       %tbody
-        -#         %tr
-        -#           %th ペンの種類
-        -#           %td.category
-        -#             - @parents.each do |parent|
-        -#               - if product.category_id == parent.id
-        -#                 -# = link_to "#" do
-        -#                 -#   = parent.parent.name
-        -#                 = link_to "#" ,class: "category_font" do
-        -#                   = parent.name
+            %table
+              %tbody
+                %tr
+                  %th ペン回し歴
+                  %td
+                    = product.pen_history.value
           .content_posts
-            = link_to '投稿編集', "/products/#{product.id}/edit", method: :get
-            = link_to '投稿削除', "/products/#{product.id}", method: :delete
-            = link_to 'メイン', "/", method: :get
+            %table
+              %tbody
+                %tr
+                  %th ペンの種類
+                  %td.category
+                    - @parents.each do |parent|
+                      - if product.category_id == parent.id
+                        -# = link_to "#" do
+                        -#   = parent.parent.name
+                        = link_to "#" ,class: "category_font" do
+                          = parent.name
+          .content_posts
+            %table
+              %tbody
+                %tr
+                  %th good数
+                  %td
+                    いいねの数が入る
+          .user_show_retrun
+            = link_to '投稿編集', "/products/#{product.id}/edit", method: :get, class: "show_user_return_bottun"
+            = link_to '投稿削除', "/products/#{product.id}", method: :delete, class: "show_user_return_bottun"
+          .user_show_retrun
+            = link_to '詳細ページ', "/products/#{product.id}", method: :get, class: "show_user_return_bottun"
+            = link_to 'トップページ', "/", method: :get, class: "show_user_return_bottun"
 
-
-      -#  .content_post_history
-      -#   = product.pen_history.value
-      -# .content_post_text
-      -#   = simple_format(product.text)
-      -# .post
-      -#   %ul.post_list
-      -#     %li
-      -#       = link_to '投稿編集', "/products/#{product.id}/edit", method: :get
-      -#     %li
-      -#       = link_to '投稿削除', "/products/#{product.id}", method: :delete
-      -#     %li
-      -#       = link_to 'メイン', "/", method: :get
-
-
--# .blank
--# %main.main
--#   .contents
--#     %p
--#       = @name
--#       さんの投稿一覧
--#     .content_post
--#       = video_tag(product.image_url.to_s, autoplay: false, muted: true, controls: true, preload: true, width: 550) if product.image?
--#     .content_post_history
--#       = product.pen_history.value
--#     .content_post_text
--#       = simple_format(product.text)
--#     .post
--#       %ul.post_list
--#         %li
--#           = link_to '編集', "/products/#{@product.id}/edit", method: :get
--#         %li
--#           = link_to '削除', "/products/#{@product.id}", method: :delete
--#         %li
--#           = link_to 'メイン', "/", method: :get
-
+      .content_main_down
+        %table
+          %tbody
+            %tr
+              %th.user_show_contes_th
+                動画の説明
+              %td.user_show_contes_tb
+                = simple_format(product.text)
 
 .blank
 = render "products/footer"

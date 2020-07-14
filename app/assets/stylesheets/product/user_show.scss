@@ -10,7 +10,6 @@
   // box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
   background-color: #f6f6f6;
   min-width: 650px;
-
 }
 .show_user{
   margin: 0 auto 0;
@@ -24,19 +23,39 @@
 .content_main{
   display: flex;
   justify-content:center;
+  width: 750px;
+  margin: 0 auto;
+}
+
+//コメント
+.content_main_down{
+  border: medium solid #ff00ff;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  width: 750px;
+}
+
+.user_show_contes_th{
+  width: 15%;
+}
+.user_show_contes_tb{
+  width: 85%;
+  padding: 20px 20px 8px 20px; //上 右 下 左
+  text-align: left;
 }
 
 
 //動画関連のcss
-.content_middle_left{
+.content_left{
   border: medium solid #ff00ff;
   margin: 5px;
   padding: 5px;
 }
-.content_middle_right{
+.content_right{
   border: medium solid red;
   margin: 5px;
-  padding: 10px;
+  padding: 5px;
 }
 .content_video{
   text-align: center;
@@ -57,7 +76,7 @@
   border: medium solid #ff00ff;
   display: flex;
   &_left{
-    padding-right: 20px;
+    padding-right: 10px;
     &_image{
       height: 80px;
       width: 80px;
@@ -85,9 +104,7 @@
 
 .content_posts{
   width: 100%;
-  background-color: #fff;
   border: medium solid #ff00ff;
-
 }
 table {
   width: 100%;
@@ -117,4 +134,28 @@ tbody {
 }
 .category_font{
   color: black;
+}
+
+
+.user_show_retrun{
+margin-top: 10px 0 0; //上 左右 下
+padding: 5px 20px;
+border: medium solid #ff00ff;
+display: flex;
+align-items: center;
+justify-content: space-around;
+}
+
+.show_user_return_bottun{
+  // margin:2px 0 2px;
+  color: white;
+  text-align:center;
+  line-height: 20px;
+  background-color: #232f3e;
+  border-radius: 5px;
+  width: 100px;
+  height: 20px;
+  font-weight: bold;
+  font-size: 12px;
+  text-decoration: none;
 }
