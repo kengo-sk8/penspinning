@@ -6,13 +6,13 @@
     %ul.navbar-nav.left__title
       - if user_signed_in?
         %li.nav-item.active
-          = link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link text-white border text-align: right'
-        %li.nav-item.active
-          = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link text-white border'
+          = link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link text-white border text-align: right '
         %li.nav-item.active
           = link_to "マイページ", "/users/#{current_user.id}", class: 'nav-link text-white border'
         %li.nav-item.active
           = link_to  "投稿する", "/products/new", class: 'nav-link text-white border'
+        %li.nav-item.active
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link text-white border'
       - else
         %li.nav-item.active
           = link_to "新規登録", new_user_registration_path, class: 'nav-link text-white border'

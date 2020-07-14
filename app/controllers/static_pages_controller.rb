@@ -4,4 +4,6 @@ class StaticPagesController < ApplicationController
 
   def inquiry
   end
+
+
 end

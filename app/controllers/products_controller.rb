@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :show, :update, :destroy]
 
   def index
-    @products = Product.includes(:user)
+    @products = Product.includes(:user).order("created_at DESC")
     @parents = Category.order("id ASC").limit(16)
   end
 
