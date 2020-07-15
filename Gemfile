@@ -12,6 +12,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
+
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pry-rails'
 gem 'dotenv-rails' # 環境変数の管理をするgem
@@ -28,7 +29,8 @@ gem 'rails-i18n', '~> 5.1' # 日本語化
 gem 'devise-i18n'
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
-gem 'devise-bootstrap-views', '~> 1.0'
+gem 'devise-bootstrap-views', '~> 1.0' #ログインのalratを日本語にする
+gem 'kaminari' #ページネーション
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

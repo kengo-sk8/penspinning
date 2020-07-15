@@ -59,5 +59,6 @@
               %td.user_show_contes_tb
                 = simple_format(product.text)
 
+  = paginate(@products)
 .blank
 = render "products/footer"

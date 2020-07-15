@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   belongs_to_active_hash :pen_history, presence: true
   belongs_to :user
   has_many :category
+  has_many :comments  # commentsテーブルとのアソシエーション
 
   mount_uploader :image, ImageUploader
 

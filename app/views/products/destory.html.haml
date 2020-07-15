@@ -3,4 +3,8 @@
     %h2
       投稿が完了しました
       .products-done__main__explanation
-        = link_to "投稿一覧に戻る", root_path, class: "all_return_bottun"
+        = link_to '詳細ページに移動', "/products/#{@product.id}", method: :get, class: "all_return_bottun"
+      .products-done__main__explanation
+        = link_to "マイページに移動", "/users/#{current_user.id}", class: "all_return_bottun"
+      .products-done__main__explanation
+        = link_to "メインページに移動", root_path, class: "all_return_bottun"

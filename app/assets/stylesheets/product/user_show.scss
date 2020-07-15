@@ -6,10 +6,10 @@
   margin-right:auto;
   margin-bottom:0;
   margin-left:auto;
+  min-height: 100vh;
   position: relative;/*←相対位置*/
   // box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
   background-color: #f6f6f6;
-  min-width: 650px;
 }
 .show_user{
   margin: 0 auto 0;
@@ -102,9 +102,10 @@
   margin-top: 10px;
 }
 
+// newで登録した内容
 .content_posts{
   width: 100%;
-  border: medium solid #ff00ff;
+
 }
 table {
   width: 100%;
@@ -114,7 +115,6 @@ table {
 tbody {
   tr {
     th {
-      border: medium solid #ff00ff;
       width: 40%;
       background-color: #eee;
       font-weight: 400;
@@ -158,4 +158,90 @@ justify-content: space-around;
   font-weight: bold;
   font-size: 12px;
   text-decoration: none;
+}
+
+
+//コメント
+.comments-box {
+  padding: 24px;
+  background-color: #fff;
+  margin: 10px 0;
+  text-align: center;
+  &__message {
+    margin-bottom: 40px;
+    &__products{
+      &__user {
+        display: flex;
+        img {
+          border-radius: 50px;
+        }
+        &__name {
+          margin: auto 10px;
+          font-weight: bold;
+        }
+      }
+      &__body {
+        margin: 10px auto;
+        position: relative;
+        padding: 16px;
+        background: #eef0f4;
+        border-radius: 15px;
+        line-height: 1.5;
+        word-break: break-all;
+        text-align: left;
+        &__icons {
+          margin: 8px 0 0;
+          font-size: 14px;
+          display: flex;
+          justify-content: space-between;
+          &__left {
+            color: #808080;
+          }
+          &__right {
+            a {
+              text-decoration: none;
+              i {
+                color: #808080;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .comment-area {
+    width: 100%;
+    min-height: 104px;
+    padding: 10px;
+  }
+  .caution-area {
+    padding: 8px;
+    font-size: 14px;
+    background-color: #f8f8f8;
+    margin: 10px 0 10px 0;
+    text-align: left;
+    width: 100%;
+  }
+  .comment-btn {
+    position: relative;
+    &__submit {
+      line-height: 48px;
+      background: #3CCACE;
+      border: 1px solid #3CCACE;
+      width: 104%;
+      height: 50px;
+      border-radius: 100px;
+      text-align: center;
+      color: white;
+      font-weight:bold;
+      cursor: pointer;
+    }
+    .fa-comment {
+      position: absolute;
+      top: 17px;
+      left: 41%;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
 }
