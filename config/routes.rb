@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :users, only: :show #マイページ
   resources :products do
+    resources :comments, only: [:create, :destroy, :show, :index] #productコントローラのindexとshowにコメントのidを渡す為、:show, :indexを追加した
     collection do  # ↓カテゴリー機能
       get 'products/new/mid_category', to: 'products#mid_category'
     end

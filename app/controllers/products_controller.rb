@@ -8,6 +8,8 @@ class ProductsController < ApplicationController
 
   def show
     @parents = Category.order("id ASC").limit(16)
+    @comment = Comment.new
+    @comments = @product.comments.includes(:user)
   end
 
   def new
@@ -34,7 +36,7 @@ class ProductsController < ApplicationController
 
   def edit
     @parents = Category.order("id ASC").limit(16)
-    # 下記コードは、編集時に動画データがなくなるため、キャッシュで保存させてる(公式に記述例ある)
+    # 下記コードは、編集時に動画データがなくなるため、キャッシュで保存させてる(公式ドキュメントに記述例あり)
     @product.image.cache! unless @product.image.blank?
   end
 

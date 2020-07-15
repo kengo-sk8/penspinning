@@ -2,35 +2,129 @@
 .blank
 %main.main
   .show_main
-    .show_main_content
-      .content__left
-        .content__left--image
-      .content__right
-        .content__right__top
-          = @product.user.name
-        .content__right__bottom
-          .content__right__bottom--date
-            = @product.created_at.strftime('%Y/%m/%d %H:%M:%S')
+    .content_show_main
+      .content_show_top
+        .show_main_left_top
+          .show_main_icon
+            .show_main_icon_left
+              .show_main_icon_left_image
+            .show_main_name
+              .show_main_name__top
+                = @product.user.name
+              .show_main_time__bottom
+                .show_main__time__bottom--date
+                = @product.created_at.strftime('%Y/%m/%d %H:%M:%S')
+        .show_main_rigth_top
+          .content_show_posts
+            %table
+              %tbody
+                %tr
+                  %th.tag_content
+                    ペン回し歴
+                  %td.neme_content
+                    = @product.pen_history.value
+          .content_show_posts
+            %table
+              %tbody
+                %tr
+                  %th.tag_content
+                    ペンの種類
+                  %td.neme_content
+                    - @parents.each do |parent|
+                      - if @product.category_id == parent.id
+                        -# = link_to "#" do
+                        -#   = parent.parent.name
+                        = link_to "#" ,class: "category_font" do
+                          = parent.name
+
+      .show_main_video_center
+        .content_show_video
+          = video_tag(@product.image_url.to_s, autoplay: false, muted: true, controls: true, preload: true, class: "main_show_video", id: "main_show_video_preview") if @product.image?
+      .show_main_contents
+        .content_show_like
+          いいね
+        .content_show_like
+          コマ送り
+
+      .comments-box
+        .message-box
+          -if @comments
+            -@comments.each do |comment|
+              .comments-box__message
+                .comments-box__message__products
+                  .comments-box__message__products__user
+                    .comments-box__message__products__user__name
+                      = comment.user.name
+                  .comments-box__message__products__body
+                    = comment.text
+                    .comments-box__message__products__body__icons
+                      .comments-box__message__products__body__icons__left
+                        = icon('fas', 'history')
+                        %span
+                          = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                    - if user_signed_in? && current_user.id == @product.user_id
+                      .comments-box__message__products__body__icons__right
+                        .message-delete
+                          = link_to "/products/#{@product.id}/comments/#{comment.id}", method:"delete", id: :delete_btn do
+                            = icon('fas', 'trash')
+
+        -if current_user
+          .caution-area
+            %p
+              相手のことを考え丁寧なコメントを心がけましょう。
+            %p
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          = form_for [@product, @comment], html: { id: :new_comment } do |f|
+            = f.text_area :text, placeholder: "コメントして下さい",class: "comment-area"
+            .comment-btn
+              = f.submit "コメントする", class: "comment-btn__submit"
+
+
+
+      -# .container
+      -#   - if current_user
+      -#     = form_with(model: [@product, @comment], local: true) do |form|
+      -#       = form.text_area :text, placeholder: "コメントする", rows: "2"
+      -#       = form.submit "SEND"
+      -#   - else
+      -#     %strong
+      -#       %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+      -#   .comments
+      -#     %h4 ＜コメント一覧＞
+      -#     - if @comments
+      -#       - @comments.each do |comment|
+      -#         %p
+      -#           %strong
+      -#             = link_to comment.user.name, "/users/#{comment.user_id}"
+      -#             ：
+      -#           = comment.text
 
 
 
 
+    -#     .content_posts
+    -#       %table
+    -#         %tbody
+    -#           %tr
+    -#             %th good数
+    -#             %td
+    -#               いいねの数が入る
+    -#     .user_show_retrun
+    -#       = link_to '投稿編集', "/products/#{@product.id}/edit", method: :get, class: "show_user_return_bottun"
+    -#       = link_to '投稿削除', "/products/#{@product.id}", method: :delete, class: "show_user_return_bottun"
+    -#     .user_show_retrun
+    -#       = link_to '詳細ページ', "/products/#{@product.id}", method: :get, class: "show_user_return_bottun"
+    -#       = link_to 'トップページ', "/", method: :get, class: "show_user_return_bottun"
 
-  -#   .post_video
-  -#     = video_tag(@product.image_url.to_s, autoplay: false, muted: true, controls: true, preload: true, width: 550) if @product.image?
-  -#   .content_post_history
-  -#     = @product.pen_history.value
-  -#   .content_post_text
-  -#     = simple_format(@product.text)
-  -#   .post
-  -#     %ul.post_list
-  -#     - if user_signed_in? && current_user.id == @product.user_id
-  -#       %li
-  -#         = link_to '編集', "/products/#{@product.id}/edit", method: :get
-  -#       %li
-  -#         = link_to '削除', "/products/#{@product.id}", method: :delete
-  -#   .return
-  -#     = link_to "戻る", root_path, class: "return_bottun"
+    -# .content_main_down
+    -#   %table
+    -#     %tbody
+    -#       %tr
+    -#         %th.user_show_contes_th
+    -#           動画の説明
+    -#         %td.user_show_contes_tb
+    -#           = simple_format(@product.text)
+    -# .content_main_down
 
 .blank
-= render "footer"
+= render "products/footer"

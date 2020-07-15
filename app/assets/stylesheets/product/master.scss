@@ -1,7 +1,7 @@
 body{
-  min-width: 650px;
   font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
   background-color: white;
+  min-width: 1000px;
 }
 
 .blank{
@@ -86,7 +86,8 @@ h2 {
 }
 
 
-
-
-
+.pagination {
+  justify-content: center;
+  margin-top: 20px;
+}
 

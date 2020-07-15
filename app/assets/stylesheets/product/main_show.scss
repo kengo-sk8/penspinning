@@ -15,53 +15,181 @@
 .show_main{
   margin: 0 auto 0;
   background-color: #fff;
-  height: 600px;
-  width: 70%;
+  height: 100%;
+  width: 800px;
   overflow: scroll;
 }
 
-
-.content{
-  padding: 10px;
-  border-bottom: 1px solid #f6f6f6;
+//2つに分離するため設定した
+.content_show_top{
   display: flex;
-  &__left{
-    padding-right: 20px;
-    &--image{
-      height: 55px;
-      width: 55px;
+  justify-content: center;
+  width: 750px;
+  margin: 5px auto 0 ;
+  border: medium solid red;
+}
+
+// アイコン 名前 時間
+.show_main_left_top{
+  margin-right: 5px;
+}
+.show_main_icon{
+  padding: 5px;
+
+  display: flex;
+  &_left{
+    padding-right: 10px;
+    &_image{
+      height: 80px;
+      width: 80px;
       border: solid 1px;
     }
   }
-  &__right{
-    width: calc(100%-100px);
-    &__top{
-      font-size: 20px;
-      font-weight: bold;
-      &--title{
-        text-decoration: none;
-        color: #000000;
-      }
-    }
-    &__bottom{
-      font-size: 15px;
-      color: #999;
-      display: flex;
-      &--userName{
-        &--btn{
-          text-decoration: none;
-          color: #999;
-        }
-      }
-      &--date{
-        margin-left: 20px;
-      }
-    }
-  }
-  &__title{
-    font-size: 30px;
+}
+.show_main_name{
+  margin-top: 10px;
+  width: calc(100%-100px);
+  &__top{
+    margin-top: 15px;
+    font-size: 20px;
     font-weight: bold;
-    padding-top: 30px;
-    text-align: center;
   }
 }
+.show_main_time__bottom{
+  font-size: 15px;
+  color: #999;
+  display: flex;
+}
+.show_main__time__bottom--date{
+  margin-left: 0px;
+  margin-top: 10px;
+}
+
+//ペンの種類、ペン回し歴
+.show_main_rigth_top{
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 300px;
+}
+.content_show_posts{
+  width: 100%;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #f8f8f8;
+}
+.tag_content{
+  width: 80px;
+  background-color: #eee;
+  font-weight: 400;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  text-align: center;
+}
+.neme_content{
+  width: 150px;
+  text-align: center;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  color: black;
+}
+.category_font{
+  color: black;
+}
+
+
+
+//動画関連のcss
+.show_main_video_center{
+  border: medium solid #ff00ff;
+  margin: 5px;
+  padding: 5px;
+}
+// .content_right{
+//   border: medium solid red;
+//   margin: 5px;
+//   padding: 5px;
+// }
+.content_show_video{
+  text-align: center;
+}
+.main_show_video{
+  width: 100%;
+  margin: 5px 0 0;
+}
+#main_show_video_preview{
+  width: 560px;
+  height: 420px;
+}
+
+//コメント
+.content_main_down{
+  border: medium solid #ff00ff;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  width: 750px;
+}
+.user_show_contes_th{
+  width: 15%;
+}
+.user_show_contes_tb{
+  width: 85%;
+  padding: 20px 20px 8px 20px; //上 右 下 左
+  text-align: left;
+}
+
+.show_main_like
+
+
+// .user_show_retrun{
+// margin-top: 10px 0 0; //上 左右 下
+// padding: 5px 20px;
+// border: medium solid #ff00ff;
+// display: flex;
+// align-items: center;
+// justify-content: space-around;
+// }
+
+// .show_user_return_bottun{
+//   // margin:2px 0 2px;
+//   color: white;
+//   text-align:center;
+//   line-height: 20px;
+//   background-color: #232f3e;
+//   border-radius: 5px;
+//   width: 100px;
+//   height: 20px;
+//   font-weight: bold;
+//   font-size: 12px;
+//   text-decoration: none;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 名前と登録日時　
+.content_right{
+  border: medium solid red;
+  margin: 5px;
+  padding: 5px;
+}
+
+
