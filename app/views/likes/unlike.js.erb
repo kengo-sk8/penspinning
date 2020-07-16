@@ -1,0 +1,3 @@
+$("<%= @id_name %>").html('<%= escape_javascript(render("likes/like", product: @product  )) %>');
+
+<%# jsファイル内でrenderメソッドを用いる場合はescape_javascriptメソッドでrender部分を囲む。 %>

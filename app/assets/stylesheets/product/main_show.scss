@@ -125,7 +125,7 @@ table {
 
 //コメント
 .content_main_down{
-  border: medium solid #ff00ff;
+
   margin: 0 auto;
   margin-bottom: 10px;
   padding: 0 10px;
@@ -140,9 +140,219 @@ table {
   text-align: left;
 }
 
-.show_main_like
+//コメント機能
+.comments-box {
+
+  width: 700px;
+  padding: 5px 15px 5px;
+
+  background-color: #fff;
+  margin: 10px auto;
+  text-align: center;
+  &__message {
+    margin-bottom: 5px;
+    padding: 0 10px;
+
+    &__products{
+      &__user {
+        display: flex;
+        img {
+          border-radius: 50px;
+
+        }
+        &__name {
+          margin: auto 10px;
+          font-weight: bold;
+
+        }
+      }
+      &__body {
+        margin: 10px auto;
+        position: relative;
+        padding: 16px;
+        background: #eef0f4;
+        border-radius: 15px;
+        line-height: 1.5;
+        word-break: break-all;
+        text-align: left;
+
+        &__icons {
+          margin: 5px 0 0;
+          font-size: 14px;
+          display: flex;
+          justify-content: space-between;
+          &__left {
+            color: #808080;
+          }
+          &__right {
+            color: #808080;
+          }
+        }
+      }
+    }
+  }
+}
+#delete_btn{
+  color: #808080;
+}
+.comment-area {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  resize: none;
+  border-radius: 10px;
+
+}
+.caution-area {
+  padding: 0 20px;
+  font-size: 14px;
+  background-color: #f8f8f8;
+  margin: 10px 0 10px 0;
+  text-align: center;
+  width: 100%;
+}
+.comment-btn {
+  position: relative;
+  &__submit {
+    margin-top: 10px;
+    line-height: 25px;
+    background: #232f3e;
+    border: 1px solid #232f3e;
+    width: 300px;
+    height: 30px;
+    border-radius: 100px;
+    text-align: center;
+    color: white;
+    font-weight:bold;
+    cursor: pointer;
+  }
+  .fa-comment {
+    position: absolute;
+    top: 17px;
+    left: 41%;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+//コメントのアイコン関連
+#delete-btn {
+  line-height: 48px;
+  background: #3CCACE;
+  border: 1px solid #3CCACE;
+  width: 55%;
+  height: 50px;
+  border-radius: 100px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  position: relative;
+  &__text {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+  }
+}
 
 
+//いいね機能の位置設定
+.products-box__option {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  border: medium solid #ff00ff;
+  width: 700px;
+  .favorite {
+    margin: 5px 20px 0;
+  }
+  .slow_video{
+    margin: 10px 20px 0;
+  }
+  .optional {
+    margin: 5px 20px 0;
+    :hover {
+      opacity: 0.8;
+    }
+    &__btn {
+      font-size: 14px;
+      &__link {
+        padding: 6px 10px;
+        display: inline-block;
+        border-radius: 4px;
+        color: #333;
+        border: 1px solid #333;
+        text-decoration: none;
+      }
+    }
+  }
+}
+//いいねボタン
+.like-border {
+  text-decoration: none;
+  color: #ea352d;
+  padding: 5px  10px;
+  border-radius: 40px;
+  border: 1px solid #ea352d;
+  cursor: pointer;
+  .like-button {
+    text-decoration: none;
+    color: #ea352d;
+    .heart {
+      color: #ea352d;
+    }
+  }
+}
+.unlike-border {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 40px;
+  border: 1px solid #333;
+  cursor: pointer;
+  .unlike-button {
+    text-decoration: none;
+    color: #333;
+    .heart {
+      color: #333;
+    }
+  }
+}
+#prev-frame,#next-frame{
+  margin: 0 5px 0 5px; //上 右 下 左
+  padding:0 20px 0;
+  border-radius: 40px;
+  color: white;
+  background-color: #232f3e;
+  font-weight: 600;
+}
+
+// .product-links {
+//   display: flex;
+//   justify-content: space-between;
+//   &__before,
+//   &__after {
+//     .product-link-btn {
+//       text-decoration: none;
+//       color: #3CCACE;
+//     }
+//   }
+// }
+// .see-more {
+//   a {
+//     display: block;
+//     margin: 24px 0 8px;
+//     color: #3CCACE;
+//     text-decoration: none;
+//     font-weight: bold;
+//     font-size: 22px;
+//     position: relative;
+//   }
+// }
 // .user_show_retrun{
 // margin-top: 10px 0 0; //上 左右 下
 // padding: 5px 20px;
