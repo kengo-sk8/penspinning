@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       get 'products/new/mid_category', to: 'products#mid_category'
     end
   end
+  post   '/like/:product_id' => 'likes#like',   as: 'like'
+  delete '/like/:product_id' => 'likes#unlike', as: 'unlike'
 
   get  '/inquiry', to: 'static_pages#inquiry'
   get  '/about',   to: 'static_pages#about'

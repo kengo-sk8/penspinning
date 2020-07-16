@@ -4,6 +4,8 @@
 %main.main
   .post
     - @products.each do |product|
+      .post_name
+        = product.user.name
       .post_video
         = video_tag(product.image_url.to_s, autoplay: false, muted: true, controls: true, preload: false, loop: true, class: "video-preview", id: "preview") if product.image?
       .post_content
@@ -13,7 +15,7 @@
       .post_show
         = link_to '詳細', "/products/#{product.id}", method: :get
 
-
+  = paginate(@products)
 .blank
 = render "footer"
 

@@ -4,8 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :products
-  has_many :comments  # commentsテーブルとのアソシエーション
+  has_many :products, dependent: :destroy
+  has_many :comments, dependent: :destroy  # commentsテーブルとのアソシエーション
+  has_many :likes, dependent: :destroy
+  has_many :like_products, through: :likes, source: :product
+
+
 
   validates :name, presence: true, length: { maximum: 10}
   validates :email, presence: true, uniqueness: true, length: { maximum: 100 }

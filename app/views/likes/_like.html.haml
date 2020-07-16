@@ -1,0 +1,23 @@
+.like-link{:id => "like-link-#{product.id}"}
+  - if user_signed_in?
+    - if current_user.likes.find_by(product_id: product.id)
+      .like-border
+        = link_to unlike_path(product.id), class: "like-button", method: :delete, remote: true do
+          .iine-button
+            %i.fas.fa-heart.heart.animated.rubberBand
+            Good！
+            = product.likes.count
+    - else
+      .unlike-border
+        = link_to like_path(product.id), class: "unlike-button", method: :post, remote: true do
+          .iine-button
+            %i.far.fa-heart.heart
+            Good！
+            = product.likes.count
+  - else
+    .like-border
+      = link_to new_user_session_path, class: "like-button" do
+        .iine-button
+          %i.fas.fa-heart.heart.animated.rubberBand
+          Good！
+          = product.likes.count

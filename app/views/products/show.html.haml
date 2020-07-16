@@ -40,11 +40,19 @@
       .show_main_video_center
         .content_show_video
           = video_tag(@product.image_url.to_s, autoplay: false, muted: true, controls: true, preload: true, class: "main_show_video", id: "main_show_video_preview") if @product.image?
-      .show_main_contents
-        .content_show_like
-          いいね
-        .content_show_like
-          コマ送り
+      .products-box__option
+        .favorite
+          = render 'likes/like', product: @product
+        .slow_video
+          %button#prev-frame コマ戻り
+          %button#next-frame コマ送り
+        .optional
+          .optional__btn
+            = link_to "#", class: "optional__btn__link" do
+              = icon('fas', 'flag', class: 'image-icon')
+              不適切な動画の通報
+      -# .content_show_like
+      -#   コマ送り
 
       .comments-box
         .message-box
@@ -70,10 +78,9 @@
 
         -if current_user
           .caution-area
-            %p
-              相手のことを考え丁寧なコメントを心がけましょう。
-            %p
-              不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            相手のことを考えて丁寧なコメントを心がけましょう。
+            %br/
+            不快な言葉遣いなどは利用制限や退会処分となることがあります。
           = form_for [@product, @comment], html: { id: :new_comment } do |f|
             = f.text_area :text, placeholder: "コメントして下さい",class: "comment-area"
             .comment-btn
