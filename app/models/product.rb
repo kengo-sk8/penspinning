@@ -12,4 +12,13 @@ class Product < ApplicationRecord
 
   validates :image, :pen_history_id, :category_id, presence: true
   validates :text,presence: true, length: {maximum: 1000} #商品説明が1000文字しか打てない様に設定した
+
+
+  def self.search(search)
+    if search
+      Product.where('text LIKE(?)', "%#{search}%")
+    else
+      Product.all
+    end
+  end
 end

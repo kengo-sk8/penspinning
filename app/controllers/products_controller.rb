@@ -12,6 +12,11 @@ class ProductsController < ApplicationController
     @comments = @product.comments.includes(:user)
   end
 
+  #検索機能
+  def search
+    @products = Product.search(params[:keyword]).order("created_at DESC").page(params[:page]).per(5)
+  end
+
   def new
     @product = Product.new
   end
@@ -55,6 +60,9 @@ class ProductsController < ApplicationController
     @mid_categories = Category.where(ancestry: params[:big_category_id])
     render json: @mid_categories
   end
+
+
+
 
     private
     def product_params

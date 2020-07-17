@@ -1,0 +1,158 @@
+.search{
+  // background-color: #fff;
+  // // height: 600px;
+  // overflow: scroll;
+  margin-top:0px;
+  margin-right:auto;
+  margin-bottom:0;
+  margin-left:auto;
+  position: relative;/*←相対位置*/
+  // box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+  background-color: #f6f6f6;
+  min-width: 650px;
+
+}
+.show_search{
+  margin: 0 auto 0;
+  background-color: #fff;
+  height: 100%;
+  width: 700px;
+  overflow: scroll;
+  border: thin solid #232f3e;
+}
+
+//2つに分離するため設定した
+.content_show_top{
+  display: flex;
+  justify-content: center;
+  width: 650px;
+  margin: 20px auto 0 ;
+}
+
+// アイコン 名前 時間
+.show_search_left_top{
+  margin-right: 5px;
+}
+.show_search_icon{
+  padding: 5px;
+  display: flex;
+  &_left{
+    padding-right: 10px;
+    margin-right: 130px;
+    &_image{
+      height: 80px;
+      width: 80px;
+      border: solid 1px;
+    }
+  }
+}
+.show_search_name{
+  margin-top: 10px;
+  margin-left: 130px;
+  width: calc(100%-100px);
+
+  &__top{
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+.show_search_time__bottom{
+  font-size: 15px;
+  color: #999;
+  display: flex;
+}
+.show_search__time__bottom--date{
+  margin-left: 0px;
+  margin-top: 10px;
+}
+
+
+//動画関連のcss
+.show_search_video_center{
+  margin: 5px;
+  padding: 5px;
+}
+// .content_right{
+//   border: medium solid red;
+//   margin: 5px;
+//   padding: 5px;
+// }
+.content_show_video{
+  text-align: center;
+}
+.search_show_video{
+  width: 100%;
+  margin: 5px 0 0;
+}
+#search_show_video_preview{
+  width: 560px;
+  height: 420px;
+}
+
+//いいね機能の位置設定
+.products-search_option {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto 20px;
+  width: 600px;
+
+}
+.favorite_search {
+  margin: 5px 20px 0;
+}
+
+
+.optional_search {
+  margin: 5px 20px 0;
+  :hover {
+    opacity: 0.8;
+  }
+}
+.optional_search_btn{
+  font-size: 14px;
+}
+.optional_search_btn_link{
+  padding: 6px 10px;
+  display: inline-block;
+  border-radius: 4px;
+  color: #333;
+  border: 1px solid #333;
+  text-decoration: none;
+}
+//いいねボタン
+.search_heart {
+  text-decoration: none;
+  color: black;
+  padding: 5px  10px;
+  border-radius: 40px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.search_icon_heart{
+  text-decoration: none;
+  color: #ea352d
+}
+
+
+.show_search_page{
+  margin-top: 10px 0 10px; //上 左右 下
+  display: flex;
+  align-items: center;
+  }
+
+  .show_search_bottun{
+    // margin:2px 0 2px;
+
+    color: white;
+    text-align:center;
+    line-height: 20px;
+    background-color: #232f3e;
+    border-radius: 50px;
+    width: 150px;
+    line-height: 30px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+  }

@@ -51,9 +51,6 @@
             = link_to "#", class: "optional__btn__link" do
               = icon('fas', 'flag', class: 'image-icon')
               不適切な動画の通報
-      -# .content_show_like
-      -#   コマ送り
-
       .comments-box
         .message-box
           -if @comments
@@ -82,56 +79,11 @@
             %br/
             不快な言葉遣いなどは利用制限や退会処分となることがあります。
           = form_for [@product, @comment], html: { id: :new_comment } do |f|
-            = f.text_area :text, placeholder: "コメントして下さい",class: "comment-area"
+            = f.text_area :text, placeholder: "コメントの文字数は250文字まで。",class: "comment-area"
             .comment-btn
               = f.submit "コメントする", class: "comment-btn__submit"
-
-
-
-      -# .container
-      -#   - if current_user
-      -#     = form_with(model: [@product, @comment], local: true) do |form|
-      -#       = form.text_area :text, placeholder: "コメントする", rows: "2"
-      -#       = form.submit "SEND"
-      -#   - else
-      -#     %strong
-      -#       %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
-      -#   .comments
-      -#     %h4 ＜コメント一覧＞
-      -#     - if @comments
-      -#       - @comments.each do |comment|
-      -#         %p
-      -#           %strong
-      -#             = link_to comment.user.name, "/users/#{comment.user_id}"
-      -#             ：
-      -#           = comment.text
-
-
-
-
-    -#     .content_posts
-    -#       %table
-    -#         %tbody
-    -#           %tr
-    -#             %th good数
-    -#             %td
-    -#               いいねの数が入る
-    -#     .user_show_retrun
-    -#       = link_to '投稿編集', "/products/#{@product.id}/edit", method: :get, class: "show_user_return_bottun"
-    -#       = link_to '投稿削除', "/products/#{@product.id}", method: :delete, class: "show_user_return_bottun"
-    -#     .user_show_retrun
-    -#       = link_to '詳細ページ', "/products/#{@product.id}", method: :get, class: "show_user_return_bottun"
-    -#       = link_to 'トップページ', "/", method: :get, class: "show_user_return_bottun"
-
-    -# .content_main_down
-    -#   %table
-    -#     %tbody
-    -#       %tr
-    -#         %th.user_show_contes_th
-    -#           動画の説明
-    -#         %td.user_show_contes_tb
-    -#           = simple_format(@product.text)
-    -# .content_main_down
-
 .blank
+.main_show_retrun
+  = link_to 'トップページ', "/", method: :get, class: "show_main_return_bottun"
 = render "products/footer"
+

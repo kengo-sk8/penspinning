@@ -128,3 +128,31 @@ nav.container {
   font-weight: bold;
   text-decoration: none;
 }
+@media screen and (max-width: 959px) {
+  .bylaw {
+    width: 592px;
+    margin: 0 auto;
+    padding-bottom: 320px;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .bylaw {
+    width: 100%;
+    padding-top: 32px;
+
+    .paragraph {
+      padding: 12px;
+
+      .heading_bylaw {
+        font-size: 2rem;
+      }
+
+      .text_bylaw {
+        .heading_article {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}
