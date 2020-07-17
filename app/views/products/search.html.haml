@@ -37,6 +37,7 @@
             .show_search_icon
               .show_search_icon_left
                 .show_search_icon_left_image
+                  = image_tag(product.user.image.to_s, class: "user_icon_image")
               .show_search_name
                 .show_search_name__top
                   = product.user.name

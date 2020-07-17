@@ -70,13 +70,14 @@
 
 // アイコン 名前 時間
 .content_icon{
+  margin-top: 5px;
   padding: 5px;
   display: flex;
   &_left{
     padding-right: 10px;
     &_image{
-      height: 80px;
-      width: 80px;
+      height: 100px;
+      width: 100px;
       border: solid 1px;
     }
   }

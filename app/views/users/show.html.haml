@@ -11,6 +11,7 @@
           .content_icon
             .content_icon_left
               .content_icon_left_image
+                = image_tag(product.user.image.to_s,class: "user_icon_image")
             .content__right
               .content__right__top
                 = product.user.name
