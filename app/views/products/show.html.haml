@@ -8,6 +8,7 @@
           .show_main_icon
             .show_main_icon_left
               .show_main_icon_left_image
+                = image_tag(@product.user.image.to_s, class: "show_icon_image")
             .show_main_name
               .show_main_name__top
                 = @product.user.name

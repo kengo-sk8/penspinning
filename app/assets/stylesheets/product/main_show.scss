@@ -16,16 +16,17 @@
   margin: 0 auto 0;
   background-color: #fff;
   height: 100%;
-  width: 800px;
+  width: 750px;
   overflow: scroll;
+  border: thin solid black;
 }
 
 //2つに分離するため設定した
 .content_show_top{
   display: flex;
   justify-content: center;
-  width: 750px;
-  margin: 5px auto 0 ;
+  width: 700px;
+  margin: 0 auto 0 ;
 }
 
 // アイコン 名前 時間
@@ -34,19 +35,23 @@
 }
 .show_main_icon{
   padding: 5px;
-
   display: flex;
   &_left{
     padding-right: 10px;
     &_image{
-      height: 80px;
-      width: 80px;
+      height: 120px;
+      width: 120px;
       border: solid 1px;
     }
   }
 }
+.show_icon_image{
+  height: 120px;
+  width: 120px;
+}
+
 .show_main_name{
-  margin-top: 10px;
+  margin-top: 50px;
   width: calc(100%-100px);
   &__top{
     margin-top: 15px;
@@ -73,7 +78,7 @@
 
 //ペンの種類、ペン回し歴
 .show_main_rigth_top{
-  margin-top: 5px;
+  margin-top: 40px;
   margin-left: 5px;
   width: 300px;
 }
@@ -108,7 +113,7 @@ table {
 
 //動画関連のcss
 .show_main_video_center{
-  margin: 5px;
+  margin: 0 5px;
   padding: 5px;
 }
 // .content_right{
@@ -150,7 +155,6 @@ table {
 
   width: 700px;
   padding: 5px 15px 5px;
-
   background-color: #fff;
   margin: 10px auto;
   text-align: center;

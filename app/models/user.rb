@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_products, through: :likes, source: :product
 
-
+  mount_uploader :image, ImageUploader # アイコン投稿のアソシエーション
 
   validates :name, presence: true, length: { maximum: 10}
   validates :email, presence: true, uniqueness: true, length: { maximum: 100 }
