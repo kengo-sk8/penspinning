@@ -38,33 +38,79 @@ RSpec.describe ProductsController, type: :controller do
     end
   end
 
-  # describe "#new" do
-  #   before do
-  #     @user = FactoryBot.create(:user)
-  #     @product = @user.products.create(
-  #       text: "落ちろよおおおおおおおおおおお",
-  #       image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test.jpg')),
-  #       category_id: 10,
-  #       pen_history_id: 3,
-  #       user_id: 1
-  #     )
-  #   end
-  #   context "ログインユーザーの確認テスト" do
-  #     # 正常なレスポンスか？
-  #     it "ログインしたユーザーのみnewの画面を正常に開くこと" do
-  #       get :new
-  #       expect(response).to be_successful
-  #     end
-  #     # 200レスポンスが返ってきているか？
-  #     it "ログインしたユーザーのみ200レスポンスが返ってくること" do
+  describe "#new" do
+    before do
+      @user = FactoryBot.create(:user)
+      @product = @user.products.create(
+        text: "落ちろよおおおおおおおおおおお",
+        image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test.jpg')),
+        category_id: 10,
+        pen_history_id: 3,
+        user_id: 1
+      )
+    end
+    context "ログインユーザーの確認テスト" do
+      # 正常なレスポンスか？
+      it "ログインしたユーザーのみnewの画面を正常に開くこと" do
+        get :new
+        expect(response).to be_successful
+      end
+      # 200レスポンスが返ってきているか？
+      it "ログインしたユーザーのみ200レスポンスが返ってくること" do
 
-  #       get :new
-  #       expect(response).to have_http_status "200"
-  #     end
-  #   end
-  # end
+        get :new
+        expect(response).to have_http_status "200"
+      end
+    end
+  end
 
-
+  describe "#edit" do
+    before do
+      @user = FactoryBot.create(:user)
+      @product = @user.products.create(
+        text: "落ちろよおおおおおおおおおおお",
+        image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test.jpg')),
+        category_id: 10,
+        pen_history_id: 3,
+        user_id: 1
+      )
+    end
+    # 正常なレスポンスか？
+    it "edirの画面が正常に開くこと" do
+      get :edit, params: {id: @product.id}
+      expect(response).to be_successful
+    end
+    # 200レスポンスが返ってきているか？
+    it "ediの画面に遷移後、200レスポンスが返ってくること" do
+      get :edit, params: {id: @product.id}
+      expect(response).to have_http_status "200"
+    end
+  end
+  describe "#destroy" do
+    before do
+      @user = FactoryBot.create(:user)
+      @product = @user.products.create(
+        text: "落ちろよおおおおおおおおおおお",
+        image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test.jpg')),
+        category_id: 10,
+        pen_history_id: 3,
+        user_id: 1
+      )
+    end
+    context "ログインしたユーザーのみが自分の投稿を消去できる" do
+      # 正常に記事を削除できるか？
+      it "deletes an products" do
+        expect {
+          delete :destroy, params: {id: @product.id}
+        }.to change(@user.products, :count).by(-1)
+      end
+      # 記事を削除した後、ルートページへリダイレクトしているか？
+      it "destoryの画面に遷移後、200レスポンスが返ってくること" do
+        delete :destroy, params: {id: @product.id}
+        expect(response).to have_http_status "200"
+      end
+    end
+  end
 end
 
 
@@ -72,29 +118,9 @@ end
 
 
 
-  # describe "#edit" do
-  #   # 正常なレスポンスか？
-  #   it "edirの画面が正常に開くこと" do
-  #     get :edit, params: {id: @product.id}
-  #     expect(response).to be_success
-  #   end
-  #   # 200レスポンスが返ってきているか？
-  #   it "ediの画面に遷移後、200レスポンスが返ってくること" do
-  #     get :edit, params: {id: @product.id}
-  #     expect(response).to have_http_status "200"
-  #   end
-  # end
 
 
 
-
-  # describe 'GET #new' do
-  #   it "new.html.erbに遷移すること" do
-  #     get :new
-  #     expect(response).to render_template :new
-  #     # render_template :newは、引数で指定したアクションがリクエストされた時に自動的に遷移するビューを返す。
-  #   end
-  # end
 
 
 # expect には「期待する」という意味。要は、結果としてそうなる事を期待してる言う意味

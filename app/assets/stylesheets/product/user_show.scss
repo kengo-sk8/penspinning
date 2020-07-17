@@ -17,6 +17,7 @@
   height: 100%;
   width: 800px;
   overflow: scroll;
+  border: thin solid #232f3e;
 }
 
 //2つに分離するため設定した
@@ -29,7 +30,6 @@
 
 //コメント
 .content_main_down{
-  border: medium solid #ff00ff;
   margin: 0 auto;
   margin-bottom: 10px;
   padding: 0 10px;
@@ -48,12 +48,10 @@
 
 //動画関連のcss
 .content_left{
-  border: medium solid #ff00ff;
   margin: 5px;
   padding: 5px;
 }
 .content_right{
-  border: medium solid red;
   margin: 5px;
   padding: 5px;
 }
@@ -73,7 +71,6 @@
 // アイコン 名前 時間
 .content_icon{
   padding: 5px;
-  border: medium solid #ff00ff;
   display: flex;
   &_left{
     padding-right: 10px;
@@ -136,11 +133,13 @@ tbody {
   color: black;
 }
 
+.content_user_show{
+  margin-top: 15px;
+}
 
 .user_show_retrun{
 margin-top: 10px 0 0; //上 左右 下
 padding: 5px 20px;
-border: medium solid #ff00ff;
 display: flex;
 align-items: center;
 justify-content: space-around;

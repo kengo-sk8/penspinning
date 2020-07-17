@@ -1,13 +1,14 @@
 .header1{
-  height: 35px;
+  height: 40px;
   width: 100%;
   background-color: #232f3e;
   display: flex;
   border-bottom: inset 2px #ff0000;
+  display: flex; //横並び？
+  justify-content: space-between;
 }
 .navbar.navbar-expand.navbar-light.up{
 margin-left: 50px;
-
 }
 
 .header2{
@@ -34,12 +35,24 @@ margin-left: 50px;
   border-radius: 7px;
 
 }
-
-
 .nav-item.active{
   display: inline;
   padding: 0 10px;
   font-size: 12px;
+}
+
+//検索関連
+.search-form {
+  text-align: center;
+  margin-right: 60px;
+  .search-input {
+    width: 400px;
+    margin-right: 10px;
+    padding:0 10px;
+  }
+  .search-btn {
+    padding:0 10px;
+  }
 }
 
 // }

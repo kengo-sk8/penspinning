@@ -17,38 +17,40 @@
               .content__right__bottom
                 .content__right__bottom--date
                   = product.created_at.strftime('%Y/%m/%d %H:%M:%S')
-          .content_posts
-            %table
-              %tbody
-                %tr
-                  %th ペン回し歴
-                  %td
-                    = product.pen_history.value
-          .content_posts
-            %table
-              %tbody
-                %tr
-                  %th ペンの種類
-                  %td.category
-                    - @parents.each do |parent|
-                      - if product.category_id == parent.id
-                        -# = link_to "#" do
-                        -#   = parent.parent.name
-                        = link_to "#" ,class: "category_font" do
-                          = parent.name
-          .content_posts
-            %table
-              %tbody
-                %tr
-                  %th good数
-                  %td
-                    いいねの数が入る
-          .user_show_retrun
-            = link_to '投稿編集', "/products/#{product.id}/edit", method: :get, class: "show_user_return_bottun"
-            = link_to '投稿削除', "/products/#{product.id}", method: :delete, class: "show_user_return_bottun"
-          .user_show_retrun
-            = link_to '詳細ページ', "/products/#{product.id}", method: :get, class: "show_user_return_bottun"
-            = link_to 'トップページ', "/", method: :get, class: "show_user_return_bottun"
+          .content_user_show
+            .content_posts
+              %table
+                %tbody
+                  %tr
+                    %th ペン回し歴
+                    %td
+                      = product.pen_history.value
+            .content_posts
+              %table
+                %tbody
+                  %tr
+                    %th ペンの種類
+                    %td.category
+                      - @parents.each do |parent|
+                        - if product.category_id == parent.id
+                          -# = link_to "#" do
+                          -#   = parent.parent.name
+                          = link_to "#" ,class: "category_font" do
+                            = parent.name
+            .content_posts
+              %table
+                %tbody
+                  %tr
+                    %th good数
+                    %td
+                      = product.likes.count
+          .content_user_show
+            .user_show_retrun
+              = link_to '投稿編集', "/products/#{product.id}/edit", method: :get, class: "show_user_return_bottun"
+              = link_to '投稿削除', "/products/#{product.id}", method: :delete, class: "show_user_return_bottun"
+            .user_show_retrun
+              = link_to '詳細ページ', "/products/#{product.id}", method: :get, class: "show_user_return_bottun"
+              = link_to 'トップページ', "/", method: :get, class: "show_user_return_bottun"
 
       .content_main_down
         %table

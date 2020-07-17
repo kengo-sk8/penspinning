@@ -6,7 +6,17 @@
   - インフラ  :  AWS(EC2, RDS for MySQL, VPC) / CircleCI
   - 開発ツール  :  Github / Visual Studio Code
 
-### version
-- ruby : 2.5.1
-- rails : 5.2.3
-- MySQL : 5.7
+## 使用技術
+
+- **バックエンド**
+
+  - Ruby 2.5.1
+  - Rails 5.2.3
+  - MySQL 5.7.29
+
+- **フロントエンド**
+
+  - html
+  - Sass
+  - JavaScript
+  - jQuery

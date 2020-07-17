@@ -26,7 +26,6 @@
   justify-content: center;
   width: 750px;
   margin: 5px auto 0 ;
-  border: medium solid red;
 }
 
 // アイコン 名前 時間
@@ -65,6 +64,13 @@
   margin-top: 10px;
 }
 
+// 名前と登録日時
+.content_right{
+  margin: 5px;
+  padding: 5px;
+}
+
+
 //ペンの種類、ペン回し歴
 .show_main_rigth_top{
   margin-top: 5px;
@@ -102,7 +108,6 @@ table {
 
 //動画関連のcss
 .show_main_video_center{
-  border: medium solid #ff00ff;
   margin: 5px;
   padding: 5px;
 }
@@ -213,6 +218,7 @@ table {
 }
 .comment-btn {
   position: relative;
+  margin-top: 10px;
   &__submit {
     margin-top: 10px;
     line-height: 25px;
@@ -265,13 +271,12 @@ table {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  border: medium solid #ff00ff;
   width: 700px;
   .favorite {
     margin: 5px 20px 0;
   }
   .slow_video{
-    margin: 10px 20px 0;
+    margin: 5px 20px 5px;
   }
   .optional {
     margin: 5px 20px 0;
@@ -323,83 +328,34 @@ table {
   }
 }
 #prev-frame,#next-frame{
-  margin: 0 5px 0 5px; //上 右 下 左
+  margin: 0 5px 5px 5px; //上 右 下 左
   padding:0 20px 0;
   border-radius: 40px;
   color: white;
   background-color: #232f3e;
   font-weight: 600;
-}
-
-// .product-links {
-//   display: flex;
-//   justify-content: space-between;
-//   &__before,
-//   &__after {
-//     .product-link-btn {
-//       text-decoration: none;
-//       color: #3CCACE;
-//     }
-//   }
-// }
-// .see-more {
-//   a {
-//     display: block;
-//     margin: 24px 0 8px;
-//     color: #3CCACE;
-//     text-decoration: none;
-//     font-weight: bold;
-//     font-size: 22px;
-//     position: relative;
-//   }
-// }
-// .user_show_retrun{
-// margin-top: 10px 0 0; //上 左右 下
-// padding: 5px 20px;
-// border: medium solid #ff00ff;
-// display: flex;
-// align-items: center;
-// justify-content: space-around;
-// }
-
-// .show_user_return_bottun{
-//   // margin:2px 0 2px;
-//   color: white;
-//   text-align:center;
-//   line-height: 20px;
-//   background-color: #232f3e;
-//   border-radius: 5px;
-//   width: 100px;
-//   height: 20px;
-//   font-weight: bold;
-//   font-size: 12px;
-//   text-decoration: none;
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 名前と登録日時　
-.content_right{
-  border: medium solid red;
-  margin: 5px;
-  padding: 5px;
+  text-decoration: none;
 }
 
 
+.main_show_retrun{
+  margin-top: 10px 0 10px; //上 左右 下
+  padding: 0 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  }
+
+  .show_main_return_bottun{
+    // margin:2px 0 2px;
+    color: white;
+    text-align:center;
+    line-height: 25px;
+    background-color: #232f3e;
+    border-radius: 50px;
+    width: 300px;
+    height: 25px;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+  }
