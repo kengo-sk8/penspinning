@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :show, :update, :destroy]
 
   def index
-    @products = Product.includes(:user).order("created_at DESC").page(params[:page]).per(9)
+    @products = Product.includes(:user).order("created_at DESC").page(params[:page]).per(5)
     @parents = Category.order("id ASC").limit(16)
   end
 
@@ -66,7 +66,7 @@ class ProductsController < ApplicationController
 
     private
     def product_params
-      params.require(:product).permit(:pen_history_id, :category_id, :youtube_url, :text ,:image,:image_cache).merge(user_id: current_user.id)
+      params.require(:product).permit(:title, :pen_history_id, :category_id, :youtube_url, :text ,:image,:image_cache).merge(user_id: current_user.id)
     end
 
     def set_product

@@ -1,0 +1,67 @@
+%header.header1
+  %nav.navbar.navbar-expand.navbar-light.up
+    = link_to "Penspinning Video", root_path, class: 'navbar-brand text-white font-weight-bold'
+  %nav.navbar.navbar-expand.navbar-light.up
+    = form_with(url: search_products_path, local: true, method: :get, class: "search-form") do |form|
+      = form.text_field :keyword, placeholder: "検索して下さい", class: "search-input"
+      = form.submit "検索", class: "search-btn"
+.header2
+  %nav.navbar.navbar-expand.navbar-light.down
+    %ul.navbar-nav.left__title
+      - if user_signed_in?
+        %li.nav-item.active
+          = link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link text-white border text-align: right '
+        %li.nav-item.active
+          = link_to "#{current_user.name}さんページ", "/users/#{current_user.id}", class: 'nav-link text-white border'
+        %li.nav-item.active
+          = link_to  "投稿する", "/products/new", class: 'nav-link text-white border'
+        %li.nav-item.active
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link text-white border'
+      - else
+        %li.nav-item.active
+          = link_to "新規登録", new_user_registration_path, class: 'nav-link text-white border'
+        %li.nav-item.active
+          = link_to "ログイン", new_user_session_path, class: 'nav-link text-white border'
+        %li.nav-item.active
+          = link_to 'ゲストログイン（閲覧用）',users_guest_sign_in_path, method: :post, class: 'nav-link yellor-border text-warning'
+.header3
+  = render 'shared/flash_messages'
+.blank
+
+%main.main
+  - @products.each do |product|
+    .show_search
+      .content_show_search
+        .content_show_top
+          .show_search_left_top
+            .show_search_icon
+              .show_search_icon_left
+                .show_search_icon_left_image
+                  - if product.user.image?
+                    = image_tag(product.user.image.to_s, class: "user_icon_image",alt:"no-image")
+                  - else
+                    = image_tag asset_path("default.png"), alt: "no-image"
+
+              .show_search_name
+                .show_search_name__top
+                  = product.title
+                .show_search_time__bottom
+                  .show_search__time__bottom--date
+                  = product.created_at.strftime('%Y/%m/%d %H:%M:%S')
+        .show_search_video_center
+          .content_show_video
+            = video_tag(product.image_url.to_s, autoplay: false, muted: true, controls: true, preload: true, class: "search_show_video", id: "search_show_video_preview") if product.image?
+        .products-search_option
+          .favorite_search
+            .search_heart
+              %i.fas.fa-heart.search_icon_heart
+              Good！
+              = product.likes.count
+          .show_search_page
+            = link_to '詳細ページ', "/products/#{product.id}", method: :get, class: "show_search_bottun"
+          .optional_search
+            .optional_search_btn
+              = link_to "#", class: "optional_search_btn_link" do
+                = icon('fas', 'flag', class: 'image-icon')
+                不適切な動画の通報
+

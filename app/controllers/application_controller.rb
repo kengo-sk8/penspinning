@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # deviseコントローラーにストロングパラメータを追加する
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+
   #ゲストログイン変更&消去防止
   def check_guest
     name = resource&.name || params[:user][:name]

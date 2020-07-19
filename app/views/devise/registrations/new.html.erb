@@ -5,7 +5,7 @@
     <%= bootstrap_devise_error_messages! %>
 
     <div class="form-group">
-      <%= f.label :name,"ニックネーム"%>
+      <%= f.label :name, "アプリ内の登録名"%>
       <%= f.text_field :name, autofocus: true,
                               maxlength: "10",
                               class: 'form-control',
@@ -23,8 +23,8 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :image,"アイコン画像(任意)" %>
-      <%= f.file_field :image ,class: 'icon_form'%>
+      <%= f.label :image,"アイコン画像(任意)" , class: "login_input_btn"%>
+      <%= f.file_field :image ,class: 'icon_form login_image_form'%>
     </div>
 
 

@@ -8,10 +8,13 @@
           .show_main_icon
             .show_main_icon_left
               .show_main_icon_left_image
-                = image_tag(@product.user.image.to_s, class: "show_icon_image")
+                - if @product.user.image?
+                  = image_tag(@product.user.image.to_s, class: "user_icon_image",alt:"no-image")
+                - else
+                  = image_tag asset_path("default.png"), alt: "no-image"
             .show_main_name
               .show_main_name__top
-                = @product.user.name
+                = @product.title
               .show_main_time__bottom
                 .show_main__time__bottom--date
                 = @product.created_at.strftime('%Y/%m/%d %H:%M:%S')
@@ -52,6 +55,14 @@
             = link_to "#", class: "optional__btn__link" do
               = icon('fas', 'flag', class: 'image-icon')
               不適切な動画の通報
+      .content_main_down
+        %table
+          %tbody
+            %tr
+              %th.main_show_contes_th
+                動画の説明
+              %td.main_show_contes_tb
+                = simple_format(@product.text)
       .comments-box
         .message-box
           -if @comments

@@ -12,12 +12,16 @@
     = link_to "mp4に変換",  "https://www.aconvert.com/jp/video/mov-to-mp4/",class: "video_site"
     %br/
     ※ 投稿できる動画のデータ最大要領は10MBまでです。
-
+.form-group
+  = form.label :title , class: "product_title" do
+    ニックネーム
+    %span.form-require 必須
+  = form.text_field :title, placeholder: "ニックネーム(10文字以内)", class: "input-form"
 .form-group
   = form.label :text do
     動画の説明
     %span.form-require 必須
-  = form.text_area :text, placeholder: "動画の説明を500文字以内でご記入ください", rows: "5", class: "textarea-default"
+  = form.text_area :text, placeholder: "動画の説明を500文字以内でご記入ください", rows: "5", class: "form_textarea"
 
 -# ユーチューブの投稿
 -# = form.label :youtube_url do
