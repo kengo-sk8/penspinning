@@ -81,7 +81,7 @@
   line-height: 1.5;
   cursor: pointer;
 }
-.textarea-default {
+.form_textarea{
   display: block;
   width: 100%;
   max-width: 100%;
@@ -92,9 +92,21 @@
   line-height: 1.5;
   resize: none;
   margin-top: 10px;
+  border-radius: 4px;
 }
 
-
+.input-form {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 0 0 10px; //上 右 下 左
+  margin: 8px 0 0;
+  height: 45px;
+  border-radius: 4px;
+  border: 1px solid gray;
+  background-color: white;
+  line-height: 1.5;
+  font-size: 16px;
+}
 
 // カテゴリー
 .select-wrap {

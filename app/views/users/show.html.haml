@@ -11,10 +11,13 @@
           .content_icon
             .content_icon_left
               .content_icon_left_image
-                = image_tag(product.user.image.to_s,class: "user_icon_image")
+                - if product.user.image?
+                  = image_tag(product.user.image.to_s, class: "user_icon_image",alt:"no-image")
+                - else
+                  = image_tag asset_path("default.png"), alt: "no-image"
             .content__right
               .content__right__top
-                = product.user.name
+                = product.title
               .content__right__bottom
                 .content__right__bottom--date
                   = product.created_at.strftime('%Y/%m/%d %H:%M:%S')
@@ -48,12 +51,12 @@
           .content_user_show
             .user_show_retrun
               = link_to '投稿編集', "/products/#{product.id}/edit", method: :get, class: "show_user_return_bottun"
-              = link_to '投稿削除', "/products/#{product.id}", method: :delete, class: "show_user_return_bottun"
+              = link_to '投稿削除', "/products/#{product.id}", class: "show_user_return_bottun", method: :delete, data:{ confirm: '動画を削除しますか？',cancel: 'やめる',commit: '削除'}, title: '削除の確認'
             .user_show_retrun
               = link_to '詳細ページ', "/products/#{product.id}", method: :get, class: "show_user_return_bottun"
               = link_to 'トップページ', "/", method: :get, class: "show_user_return_bottun"
 
-      .content_main_down
+      .content_show_down
         %table
           %tbody
             %tr

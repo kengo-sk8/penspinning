@@ -31,6 +31,7 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 gem 'devise-bootstrap-views', '~> 1.0' #ログインのalratを日本語にする
 gem 'kaminari' #ページネーション
+gem 'data-confirm-modal' #削除ボタンを押したときにダイアログを表示させる
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

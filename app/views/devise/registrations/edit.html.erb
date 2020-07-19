@@ -5,7 +5,7 @@
     <%= bootstrap_devise_error_messages! %>
 
     <div class="form-group">
-          <%= f.label :name,"ニックネーム"%>
+          <%= f.label :name, "アプリ内の登録名"%>
           <%= f.text_field :name, autofocus: true,
                                   maxlength: "10",
                                   class: 'form-control',
@@ -23,8 +23,8 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :image,"アイコン画像(任意)" %>
-      <%= f.file_field :image ,class: 'icon_form'%>
+      <%= f.label :image,"アイコン画像編集(任意)" , class: "login_input_btn"%>
+      <%= f.file_field :image ,class: 'icon_form login_image_form'%>
     </div>
 
 
@@ -62,6 +62,8 @@
   <hr class="devise-link my-5">
   <div class="form-group">
     <%= link_to "トップページ", root_path, class: 'login_btn btn-info btn-block mb-4 text-white' %>
-    <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: {confirm: t('.are_you_sure')}, method: :delete, class: 'login_btn btn-danger btn-block text-white' %>
+    <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: {confirm: 'アカウントを削除しますか？',cancel: 'やめる',commit: '削除'}, method: :delete, class: 'login_btn btn-danger btn-block text-white' %>
   </div>
 </div>
+
+

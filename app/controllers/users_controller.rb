@@ -8,6 +8,4 @@ class UsersController < ApplicationController
     #カテゴリーの呼び出し
     @parents = Category.order("id ASC").limit(16)
   end
-
-
 end

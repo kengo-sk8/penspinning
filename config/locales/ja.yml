@@ -16,6 +16,7 @@
           text: "※ 動画の説明"
           pen_history_id : "※ ペン回し歴"
           category_id: "※ ペンの種類"
+          title: "※ ニックネーム"
 
     views:
       pagination:

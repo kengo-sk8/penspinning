@@ -15,6 +15,7 @@ RSpec.describe Product, type: :model do
   it "コメント、動画、カテゴリー、回し歴、外部キー（user_id）があれば有効であること" do
     user = @user
     product = user.products.build(
+      title: "tadashi",
       text: "落ちろよおおおおおおおおおおお",
       image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test.jpg')),
       category_id: 10,
@@ -24,12 +25,14 @@ RSpec.describe Product, type: :model do
     expect(product).to be_valid
   end
 
+
   describe '#create' do #describeは、ネストして作成する事が出来る。「productクラスにあるcreateメソッドをテストするまとまり」であることを示している。
     #describeとdoの間にメソッド名を書く際は#をつけるのが慣習らしい
       #パスワードが6桁の時と５桁の時のテストを行うことで、どの位置からバリデーションが用意されているのか可視化している
-    it "テキストの文字量は500以下であること" do
+    it "テキストの文字量は500以下であれば登録できること" do
       user = @user
       product = user.products.build(
+        title: "tadashi",
         text: "a" * 499,
         image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test.jpg')),
         category_id: 10,
@@ -40,6 +43,26 @@ RSpec.describe Product, type: :model do
       expect(product).to be_valid
     end
 
+    it "テキストの文字量は500以上だと登録できないこと" do
+      user = @user
+      product = user.products.build(text: "a" * 501)
+      product.valid?
+      expect(product).to_not be_valid
+    end
+
+    it "titleの文字量が10文字以上の場合、登録できないこと" do
+      user = @user
+      product = user.products.build(title: "a" * 11)
+      product.valid?
+      expect(product).to_not be_valid
+    end
+
+
+    it "titleがない場合は登録できないこと" do
+      product = FactoryBot.build(:product, title: nil)
+      product.valid?
+      expect(product.errors[:title]).to include("を入力してください")
+    end
 
     it "imageがない場合は登録できないこと" do
       product = FactoryBot.build(:product, image: nil)
@@ -71,9 +94,10 @@ RSpec.describe Product, type: :model do
 
   describe '#update' do
 
-    it "テキストの文字量は500以下であること" do
+    it "テキストの文字量は500以下であれば登録できること" do
       user = @user
       product = user.products.build(
+        title: "tadashi",
         text: "a" * 499,
         image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test.jpg')),
         category_id: 10,
@@ -84,24 +108,41 @@ RSpec.describe Product, type: :model do
       expect(product).to be_valid
     end
 
+    it "テキストの文字量は500以上だと登録できないこと" do
+      user = @user
+      product = user.products.build(text: "a" * 501)
+      product.valid?
+      expect(product).to_not be_valid
+    end
+
+    it "titleの文字量が10文字以上の場合、登録できないこと" do
+      user = @user
+      product = user.products.build(title: "a" * 11)
+      product.valid?
+      expect(product).to_not be_valid
+    end
+
+
+    it "titleがない場合は登録できないこと" do
+      product = FactoryBot.build(:product, title: nil)
+      product.valid?
+      expect(product.errors[:title]).to include("を入力してください")
+    end
     it "imageがない場合は登録できないこと" do
       product = FactoryBot.build(:product, image: nil)
       product.valid?
       expect(product.errors[:image]).to include("を入力してください")
     end
-
     it "textがない場合は登録できないこと" do
       product = FactoryBot.build(:product, text: nil)
       product.valid?
       expect(product.errors[:text]).to include("を入力してください")
     end
-
     it "pen_history_idがない場合は登録できないこと" do
       product = FactoryBot.build(:product, pen_history_id: nil)
       product.valid?
       expect(product.errors[:pen_history_id]).to include("を入力してください")
     end
-
     it "category_idがない場合は登録できないこと" do
       product = FactoryBot.build(:product, category_id: nil)
       product.valid?
