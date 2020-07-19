@@ -14,7 +14,7 @@
 
 ## 作品内での使用技術
 - Github
-- MySQL
+- MySQL 5.6.47
 - Rspec
 - Nginx
 - CircleCI（CI）
