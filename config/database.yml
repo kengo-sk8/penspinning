@@ -19,10 +19,10 @@ test:
 
 production:
   <<: *default
-  host: <%= Rails.application.credentials.rds[:host] %>
-  database: <%= Rails.application.credentials.rds[:database] %>
-  username: <%= Rails.application.credentials.rds[:username] %>
-  password: <%= Rails.application.credentials.rds[:password] %>
-  # database: penspinning_production
-  # username: penspinning
-  # password: <%= ENV['PENSPINNING_DATABASE_PASSWORD'] %>
+  # host: <%= Rails.application.credentials.rds[:host] %>
+  # database: <%= Rails.application.credentials.rds[:database] %>
+  # username: <%= Rails.application.credentials.rds[:username] %>
+  # password: <%= Rails.application.credentials.rds[:password] %>
+  database: penspinning_production
+  username: penspinning
+  password: <%= ENV['PENSPINNING_DATABASE_PASSWORD'] %>
