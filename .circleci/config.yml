@@ -2,9 +2,11 @@
 #
 # Check https://circleci.com/docs/2.0/language-ruby/ for more details
 #
-version: 2
-jobs:
-  build:
+version: 2.1
+
+executors:
+  default:
+    working_directory: ~/penspinning
     docker:
       # specify the version you desire here
       - image: circleci/ruby:2.5.1-node-browsers
@@ -26,47 +28,78 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/postgres:9.4
 
-    working_directory: ~/penspinning
 
+
+commands:
+  setup:
     steps:
       - checkout
-
-      # Download and cache dependencies
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-
       - run:
           name: install dependencies
           command: |
-            gem install bundler:2.1.4
-            bundle _2.1.4_ install --jobs=4 --retry=3 --path vendor/bundle
+            gem install bundler -v 2.1.4
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-      # Database setup
-      - run:
-          name: waiting for stating database
-          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
+jobs:
+  test:
+    executor: default
+    environment:
+      RAILS_ENV: test
+    steps:
+      - setup
+      - run: mv config/database.yml.ci config/database.yml
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
-      # run tests!
       - run:
-          name: Run rspec in parallel
+          name: Rubocop
+          command: bundle exec rubocop
+
+      - run:
+          name: run tests
           command: |
-            bundle exec rspec --profile 10 \
-                              --format RspecJunitFormatter \
-                              --out test_results/rspec.xml \
-                              --format progress \
-                              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
-      # collect reports
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+              circleci tests split --split-by=timings)"
+            bundle exec rspec \
+              --format progress \
+              --format RspecJunitFormatter \
+              --out /tmp/test-results/rspec.xml \
+              --format progress \
+              $TEST_FILES
+
       - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+
+  deploy:
+    executor: default
+    steps:
+      - setup
+      - add_ssh_keys:
+          fingerprints:
+            - "bd:d5:5b:6c:b1:79:33:fa:e1:5a:4d:76:80:b9:75:7e"
+      - deploy:
+          name: Capistrano deploy
+          command: bundle exec cap production deploy
+
+workflows:
+  test_and_deploy:
+    jobs:
+      - test
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
