@@ -24,6 +24,7 @@ production:
   database: <%= Rails.application.credentials.rds[:database] %>
   username: <%= Rails.application.credentials.rds[:username] %>
   password: <%= Rails.application.credentials.rds[:password] %>
+  port: 3306
   # database: penspinning_production
   # username: penspinning
   # password: <%= ENV['PENSPINNING_DATABASE_PASSWORD'] %>
