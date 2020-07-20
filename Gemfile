@@ -51,6 +51,11 @@ group :development, :test do
 
 end
 
+group :production do
+  gem 'unicorn', '5.4.1'
+end
+
+
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
