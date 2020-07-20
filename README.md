@@ -6,19 +6,21 @@
 
 ## 言語
 - Ruby 2.5.1
-- Ruby on Rails 5.2.3
 - HTML
 - CSS
 - jQuery
-- Bootstrap
+- Javascript
 
 ## 作品内での使用技術
+- Ruby on Rails 5.2.3
+- Bootstrap
 - Github
 - MySQL 5.6.47
 - Rspec
 - Nginx
 - Unicorn
 - CircleCI（CI）
+- Docker/docker-compose
 - AWS (EC2, RDS for MySQL, S3, VPC, Route53, ALB)
 
 ## アプリの機能一覧
@@ -43,5 +45,5 @@
 ### 追加予定機能
 - いいね一覧機能
 - フォロー・フォロワー機能
-- お問い合わせ機能￥
+- お問い合わせ機能
 - スマホ対応へのview調整
