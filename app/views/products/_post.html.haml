@@ -1,6 +1,6 @@
 %header.header1
   %nav.navbar.navbar-expand.navbar-light.up
-    = link_to "Penspinning Video", root_path, class: 'navbar-brand text-white font-weight-bold'
+    = link_to "Penspinning Videos", root_path, class: 'navbar-brand text-white font-weight-bold'
   %nav.navbar.navbar-expand.navbar-light.up
     = form_with(url: search_products_path, local: true, method: :get, class: "search-form") do |form|
       = form.text_field :keyword, placeholder: "検索して下さい", class: "search-input"
