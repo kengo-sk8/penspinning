@@ -9,7 +9,11 @@ Rails.application.routes.draw do
 
   root to: "products#index"
 
-  resources :users, only: :show #マイページ
+  resources :users, only: [:index, :show] do #マイページ
+    collection do
+      get :likes
+    end
+  end
   resources :products do
     resources :comments, only: [:create, :destroy, :show, :index] #productコントローラのindexとshowにコメントのidを渡す為、:show, :indexを追加した
     collection do  # ↓カテゴリー機能

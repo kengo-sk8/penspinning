@@ -1,0 +1,21 @@
+= render partial: "products/header", locals: { product: @products }
+%main.main
+  .like-content
+    %h2 Good数の一覧
+    - current_user.like_products.last(10).each do |product|
+      =link_to product_path(product), class: "mypage-product-link" do
+        .mypage-product_video
+          = video_tag(product.image_url.to_s, height: "120", width: "160 ") if product.image?
+        .mypage-product-body
+          .mypage-product-name
+            動画投稿者:
+            = product.title
+          .mypage-product-time
+            投稿日時:
+            = product.created_at.strftime('%Y/%m/%d %H:%M:%S')
+          .mypage-product-good
+            合計Good数:
+            = product.likes.count
+        -# %i.fas.fa-chevron-right
+.blank
+= render "products/footer"
