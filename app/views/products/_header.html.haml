@@ -6,7 +6,9 @@
     %ul.navbar-nav.left__title
       - if user_signed_in?
         %li.nav-item.active
-          = link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link text-white border text-align: right '
+          = link_to "いいねした動画", likes_users_path, class: 'nav-link text-white border text-align: right'
+        %li.nav-item.active
+          = link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link text-white border text-align: right'
         %li.nav-item.active
           = link_to "#{current_user.name}さんページ", "/users/#{current_user.id}", class: 'nav-link text-white border'
         %li.nav-item.active
