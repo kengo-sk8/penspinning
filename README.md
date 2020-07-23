@@ -6,7 +6,7 @@
 
 ### 動作概要
   - 接続先情報
-  - URL  :  http://www.kengo-penspinning-app.xyz/
+  - URL  :  https://www.kengo-penspinning-app.xyz/
 
 ## 言語
 - Ruby 2.5.1
@@ -25,7 +25,7 @@
 - Unicorn
 - CircleCI（CI）
 - Docker/docker-compose
-- AWS (EC2, RDS for MySQL, S3, VPC, Route53, ALB)
+- AWS (EC2, RDS for MySQL, S3, VPC, IAM, Route53, ACM, ALB)
 
 ## アプリの機能一覧
 ### ユーザー機能関連
