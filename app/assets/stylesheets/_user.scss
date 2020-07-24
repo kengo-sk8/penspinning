@@ -53,6 +53,24 @@
   display: none;
 }
 
+.facebook{
+  height: 50px;
+  width: 100%;
+  background-color: rgb(61, 61, 111);
+  border-radius: 5px;
+  margin: 20px auto;
+  text-align: center;
+  line-height: 25px;
+}
+.facebook_word{
+  color: red;
+  text-align: center;
+  font-size: 13px;
+}
+
+.btn-info{
+  margin: 20px 0;
+}
 // .alert_flash {
 //   position: relative;
 //   padding: 0.75rem 1.25rem;

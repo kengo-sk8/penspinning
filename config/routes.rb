@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
-    passwords: 'users/passwords'
+    passwords: 'users/passwords',
+    omniauth_callbacks: 'users/omniauth_callbacks'
   } #ゲストログイン消去&編集防止collection do
   devise_scope :user do #ゲストログイン機能
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'

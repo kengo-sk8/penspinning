@@ -26,7 +26,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-.evn
+.env
 config/secrets.yml
 .DC_store
 /.idea
