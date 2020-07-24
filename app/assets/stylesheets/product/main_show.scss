@@ -135,9 +135,10 @@ table {
 
 //コメント
 .content_main_down{
-  margin: 10px auto 30px;
-  padding: 0 10px;
+  margin: 10px auto 0;
+  padding: 0 10px 30px;
   width: 650px;
+  border-bottom: 1px solid #232f3e;;
 }
 
 .main_show_contes_th{
