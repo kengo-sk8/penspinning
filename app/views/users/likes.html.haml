@@ -1,7 +1,7 @@
 = render partial: "products/header", locals: { product: @products }
 %main.main
   .like-content
-    %h2 Goodした動画の一覧
+    %h2.like_form Goodした動画の一覧
     - current_user.like_products.last(10).each do |product|
       =link_to product_path(product), class: "mypage-product-link" do
         .mypage-product_video
