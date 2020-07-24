@@ -12,7 +12,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
-
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pry-rails'
 gem 'dotenv-rails' # 環境変数の管理をするgem
@@ -32,6 +31,8 @@ gem 'jquery-rails'
 gem 'devise-bootstrap-views', '~> 1.0' #ログインのalratを日本語にする
 gem 'kaminari' #ページネーション
 gem 'data-confirm-modal' #削除ボタンを押したときにダイアログを表示させる
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -57,12 +58,9 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 end
 
-
-
 group :production do
   gem 'unicorn', '5.4.1'
 end
-
 
 group :development do
   gem 'web-console', '>= 3.3.0'
