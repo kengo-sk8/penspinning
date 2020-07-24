@@ -135,7 +135,7 @@ table {
 
 //コメント
 .content_main_down{
-  margin: 10px auto;
+  margin: 10px auto 30px;
   padding: 0 10px;
   width: 650px;
 }
@@ -170,13 +170,14 @@ table {
 
         }
         &__name {
-          margin: auto 10px;
+          text-align: left;
+          margin-left: 15px;
           font-weight: bold;
 
         }
       }
       &__body {
-        margin: 10px auto;
+        margin: 3px auto 26px; //上下 左右  上 左右 下
         position: relative;
         padding: 16px;
         background: #eef0f4;
