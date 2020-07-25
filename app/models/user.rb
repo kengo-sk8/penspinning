@@ -13,8 +13,10 @@ class User < ApplicationRecord
 
   mount_uploader :image, ImageUploader # アイコン投稿のアソシエーション
 
+  before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 10}
-  validates :email, presence: true, uniqueness: true, length: { maximum: 100 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
+  validates :email, presence: true, uniqueness: true, length: { maximum: 100 }, format: { with: VALID_EMAIL_REGEX }
   # validates :password_confirmation, presence: true, length: { in: 6..30 }
   # uniqueness 同一データは一つのみ許可する
 
