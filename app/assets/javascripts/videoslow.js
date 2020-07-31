@@ -1,4 +1,4 @@
-$(window).load(function() {
+jQuery(function() {
   var video = document.getElementById('main_show_video_preview');
   var prevFrame = document.getElementById('prev-frame');
   var nextFrame = document.getElementById('next-frame');

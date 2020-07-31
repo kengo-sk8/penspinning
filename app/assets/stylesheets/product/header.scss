@@ -55,6 +55,15 @@ margin-left: 50px;
   }
 }
 
+@media screen and (max-width: 812px) {
+  .header1,.header2,.header3{
+    width: 100%;
+  }
+  .navbar.navbar-expand.navbar-light.up{
+    margin-left: 20px;
+    }
+}
+
 // }
 //   font-size: 30px;
 //   line-height: 56px;
