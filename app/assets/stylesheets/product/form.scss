@@ -256,3 +256,11 @@
 .image_form{
   display: none;
 }
+
+@media screen and (max-width: 812px) {
+  .form{
+    width: 800px;
+  }
+
+
+}
