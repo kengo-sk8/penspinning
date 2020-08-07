@@ -1,4 +1,4 @@
-jQuery(function() {
+window.onload = function() {
   var video = document.getElementById('main_show_video_preview');
   var prevFrame = document.getElementById('prev-frame');
   var nextFrame = document.getElementById('next-frame');
@@ -17,4 +17,4 @@ jQuery(function() {
         video.currentTime = Math.max(0, video.currentTime-frameRate);
     });
   }
-});
+};
