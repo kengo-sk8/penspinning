@@ -3,6 +3,17 @@
   <%= render 'shared/flash_messages'%>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :name, "アプリ内の登録名"%>
+    <%= f.text_field :name, autofocus: true,
+                            maxlength: "10",
+                            class: 'form-control',
+                            required: true,
+                            maxlength: '10' %>
+    </div>
+
+
     <div class="form-group">
       <%= f.label :email %>
       <%= f.email_field :email,
